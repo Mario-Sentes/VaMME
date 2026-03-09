@@ -1,0 +1,64 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:VaMME.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+        x:Class="VaMME.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="VaMME">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <StackPanel Margin="20">
+        <TextBlock>VaMME - Valve Mass Material Editor</TextBlock>
+
+        <DockPanel Margin="10">
+            <Menu DockPanel.Dock="Top">
+
+              <MenuItem Header="Amend" ToolTip.Tip="Contains functions that alter any particular file's contents.">
+                <MenuItem Header="Linear" ToolTip.Tip="Amend all files in one or more directories." Click="run_AmendLinear"/>
+                <MenuItem Header="Recursive" ToolTip.Tip="Amend all files in a directory recursively."/>
+                <MenuItem Header="Crude-edit" ToolTip.Tip="Crudely edits specific lines of all files in a directory, as specified by the user. WARNING: misuse of this function can lead to mass-corruption of files. Verify the desired changes carefully!"/>
+                <MenuItem Header="Fixer" ToolTip.Tip="Fixes all .vmt files in a directory."/>
+              </MenuItem>
+
+              <MenuItem Header="Copy" ToolTip.Tip="Contains functions that copy files in one way or another.">
+                <MenuItem Header="Linear" ToolTip.Tip="Copy all files from one or more directories to one or more directories."/>
+                <MenuItem Header="Recursive" ToolTip.Tip="Copy all compatible files in a directory recursively to one or more directories."/>
+                <MenuItem Header="EBMPC" ToolTip.Tip="Example-Based Mass-Parameterised Copy - Will copy one file into multiple target directories and within each directory, get the first matching example and inject it with the found parameters as specified by the user."/>
+              </MenuItem>
+
+              <MenuItem Header="Move" ToolTip.Tip="Contains functions that move files from one place to another.">
+                <MenuItem Header="Linear" ToolTip.Tip="Moves all files from one or more directories to a single target directory."/>
+              </MenuItem>
+
+              <MenuItem Header="Add parameters" ToolTip.Tip="Contains functions that simply add parameters to a file - Note: these will NOT overwrite existing parameters.">
+                <MenuItem Header="Singular" ToolTip.Tip="Add parameters to one file from a specified full path."/>
+                <MenuItem Header="Linear" ToolTip.Tip="Add parameters to all files from one directory."/>
+                <MenuItem Header="Multiple" ToolTip.Tip="Add parameters to all files from one or more directories."/>
+              </MenuItem>
+
+              <MenuItem Header="Create" ToolTip.Tip="Functions that relate to the creation of files from scratch. Useful for creating skeleton structures.">
+                <MenuItem Header="Paired Base - .vmt" ToolTip.Tip="Will create a .vmt file for each .vtf file in a specified directory by using a specified base .vmt file"/>
+              </MenuItem>
+
+              <MenuItem Header="Settings" ToolTip.Tip="Review the program's settings."></MenuItem>
+
+              <MenuItem Header="Help" ToolTip.Tip="WIP - View more information about how to use the program, good practices and more!" Click="testWindow"></MenuItem>
+
+              <MenuItem Header="Exit" ToolTip.Tip="Exit the program." Click="exitProgram"></MenuItem>
+
+            </Menu>
+
+        </DockPanel>
+
+    </StackPanel>
+   
+
+</Window>

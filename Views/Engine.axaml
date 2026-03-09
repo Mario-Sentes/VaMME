@@ -1,0 +1,14 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="VaMME.Engine"
+        Title="VaMME">
+
+    <StackPanel Margin="10" Spacing="8">
+
+        <MenuItem Header="Abort task." ToolTip.Tip="WARNING! Clicking this button will abort any and all tasks currently in progress!" Click="AbortTask"></MenuItem>
+    </StackPanel>
+
+</Window>
