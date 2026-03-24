@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VaMME")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86bf2f040c2a51dd5fa4978a5d828ba0072e647b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9bb9e94fd6de5e03ad8c3fae3d2fd40aa0f6d4d1")]
 [assembly: System.Reflection.AssemblyProductAttribute("VaMME")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VaMME")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

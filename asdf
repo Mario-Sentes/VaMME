@@ -1,0 +1,1840 @@
+[1mdiff --git a/.vs/VaMME/CopilotIndices/17.14.1091.29919/CodeChunks.db b/.vs/VaMME/CopilotIndices/17.14.1091.29919/CodeChunks.db[m
+[1mindex 9457d92..cd96c88 100644[m
+Binary files a/.vs/VaMME/CopilotIndices/17.14.1091.29919/CodeChunks.db and b/.vs/VaMME/CopilotIndices/17.14.1091.29919/CodeChunks.db differ
+[1mdiff --git a/.vs/VaMME/CopilotIndices/17.14.1091.29919/SemanticSymbols.db b/.vs/VaMME/CopilotIndices/17.14.1091.29919/SemanticSymbols.db[m
+[1mindex e9a9bb1..f26f244 100644[m
+Binary files a/.vs/VaMME/CopilotIndices/17.14.1091.29919/SemanticSymbols.db and b/.vs/VaMME/CopilotIndices/17.14.1091.29919/SemanticSymbols.db differ
+[1mdiff --git a/.vs/VaMME/FileContentIndex/27168e5e-d5c1-4143-8dd8-7c8fa5d0093b.vsidx b/.vs/VaMME/FileContentIndex/27168e5e-d5c1-4143-8dd8-7c8fa5d0093b.vsidx[m
+[1mdeleted file mode 100644[m
+[1mindex 034af9b..0000000[m
+Binary files a/.vs/VaMME/FileContentIndex/27168e5e-d5c1-4143-8dd8-7c8fa5d0093b.vsidx and /dev/null differ
+[1mdiff --git a/.vs/VaMME/FileContentIndex/c38f04f6-d89b-4b1f-80ea-11f121b093b0.vsidx b/.vs/VaMME/FileContentIndex/c38f04f6-d89b-4b1f-80ea-11f121b093b0.vsidx[m
+[1mdeleted file mode 100644[m
+[1mindex cf97ef4..0000000[m
+Binary files a/.vs/VaMME/FileContentIndex/c38f04f6-d89b-4b1f-80ea-11f121b093b0.vsidx and /dev/null differ
+[1mdiff --git a/.vs/VaMME/v17/.futdcache.v2 b/.vs/VaMME/v17/.futdcache.v2[m
+[1mindex 562b71a..2535d6f 100644[m
+Binary files a/.vs/VaMME/v17/.futdcache.v2 and b/.vs/VaMME/v17/.futdcache.v2 differ
+[1mdiff --git a/.vs/VaMME/v17/.suo b/.vs/VaMME/v17/.suo[m
+[1mindex 3ce3a23..b164f1b 100644[m
+Binary files a/.vs/VaMME/v17/.suo and b/.vs/VaMME/v17/.suo differ
+[1mdiff --git a/.vs/VaMME/v17/DocumentLayout.backup.json b/.vs/VaMME/v17/DocumentLayout.backup.json[m
+[1mindex 5a06f26..6ba486a 100644[m
+[1m--- a/.vs/VaMME/v17/DocumentLayout.backup.json[m
+[1m+++ b/.vs/VaMME/v17/DocumentLayout.backup.json[m
+[36m@@ -2,25 +2,13 @@[m
+   "Version": 1,[m
+   "WorkspaceRootPath": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\",[m
+   "Documents": [[m
+[31m-    {[m
+[31m-      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\engine.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",[m
+[31m-      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\engine.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"[m
+[31m-    },[m
+     {[m
+       "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\engine.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+       "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\engine.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+     },[m
+     {[m
+[31m-      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+[31m-      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+[31m-    },[m
+[31m-    {[m
+[31m-      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\testwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+[31m-      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\testwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+[31m-    },[m
+[31m-    {[m
+[31m-      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\testwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",[m
+[31m-      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\testwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"[m
+[32m+[m[32m      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\engine.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",[m
+[32m+[m[32m      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\engine.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"[m
+     },[m
+     {[m
+       "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",[m
+[36m@@ -29,6 +17,14 @@[m
+     {[m
+       "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+       "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+[32m+[m[32m    },[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+[32m+[m[32m      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+[32m+[m[32m    },[m
+[32m+[m[32m    {[m
+[32m+[m[32m      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+[32m+[m[32m      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+     }[m
+   ],[m
+   "DocumentGroupContainers": [[m
+[36m@@ -38,67 +34,67 @@[m
+       "DocumentGroups": [[m
+         {[m
+           "DockedWidth": 200,[m
+[31m-          "SelectedChildIndex": 0,[m
+[32m+[m[32m          "SelectedChildIndex": 2,[m
+           "Children": [[m
+             {[m
+               "$type": "Document",[m
+[31m-              "DocumentIndex": 0,[m
+[31m-              "Title": "Engine.axaml",[m
+[31m-              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml",[m
+[31m-              "RelativeDocumentMoniker": "Views\\Engine.axaml",[m
+[31m-              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml",[m
+[31m-              "RelativeToolTip": "Views\\Engine.axaml",[m
+[32m+[m[32m              "DocumentIndex": 4,[m
+[32m+[m[32m              "Title": "App.axaml.cs",[m
+[32m+[m[32m              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\App.axaml.cs",[m
+[32m+[m[32m              "RelativeDocumentMoniker": "App.axaml.cs",[m
+[32m+[m[32m              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\App.axaml.cs",[m
+[32m+[m[32m              "RelativeToolTip": "App.axaml.cs",[m
+[32m+[m[32m              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",[m
+[32m+[m[32m              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",[m
+[32m+[m[32m              "WhenOpened": "2026-03-18T11:10:10.377Z",[m
+[32m+[m[32m              "EditorCaption": ""[m
+[32m+[m[32m            },[m
+[32m+[m[32m            {[m
+[32m+[m[32m              "$type": "Document",[m
+[32m+[m[32m              "DocumentIndex": 2,[m
+[32m+[m[32m              "Title": "MainWindow.axaml",[m
+[32m+[m[32m              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml",[m
+[32m+[m[32m              "RelativeDocumentMoniker": "Views\\MainWindow.axaml",[m
+[32m+[m[32m              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml",[m
+[32m+[m[32m              "RelativeToolTip": "Views\\MainWindow.axaml",[m
+               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",[m
+[31m-              "WhenOpened": "2026-03-09T18:18:02.318Z",[m
+[32m+[m[32m              "WhenOpened": "2026-02-03T15:50:32.689Z",[m
+               "EditorCaption": ""[m
+             },[m
+             {[m
+               "$type": "Document",[m
+[31m-              "DocumentIndex": 1,[m
+[32m+[m[32m              "DocumentIndex": 0,[m
+               "Title": "Engine.axaml.cs",[m
+               "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml.cs",[m
+               "RelativeDocumentMoniker": "Views\\Engine.axaml.cs",[m
+               "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml.cs",[m
+               "RelativeToolTip": "Views\\Engine.axaml.cs",[m
+[31m-              "ViewState": "AgIAAOEDAAAAAAAAAADwv/8DAAABAAAAAAAAAA==",[m
+[32m+[m[32m              "ViewState": "AgIAAO8AAAAAAAAAAAAuwAYBAAAJAAAAAAAAAA==",[m
+               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",[m
+               "WhenOpened": "2026-03-09T18:18:02.251Z",[m
+               "EditorCaption": ""[m
+             },[m
+             {[m
+               "$type": "Document",[m
+[31m-              "DocumentIndex": 4,[m
+[31m-              "Title": "testwindow.axaml",[m
+[31m-              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml",[m
+[31m-              "RelativeDocumentMoniker": "Views\\testwindow.axaml",[m
+[31m-              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml",[m
+[31m-              "RelativeToolTip": "Views\\testwindow.axaml",[m
+[32m+[m[32m              "DocumentIndex": 1,[m
+[32m+[m[32m              "Title": "Engine.axaml",[m
+[32m+[m[32m              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml",[m
+[32m+[m[32m              "RelativeDocumentMoniker": "Views\\Engine.axaml",[m
+[32m+[m[32m              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml",[m
+[32m+[m[32m              "RelativeToolTip": "Views\\Engine.axaml",[m
+               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",[m
+[31m-              "WhenOpened": "2026-03-09T18:07:05.4Z",[m
+[32m+[m[32m              "WhenOpened": "2026-03-09T18:18:02.318Z",[m
+               "EditorCaption": ""[m
+             },[m
+             {[m
+               "$type": "Document",[m
+               "DocumentIndex": 3,[m
+[31m-              "Title": "testwindow.axaml.cs",[m
+[31m-              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml.cs",[m
+[31m-              "RelativeDocumentMoniker": "Views\\testwindow.axaml.cs",[m
+[31m-              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml.cs",[m
+[31m-              "RelativeToolTip": "Views\\testwindow.axaml.cs",[m
+[31m-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",[m
+[31m-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",[m
+[31m-              "WhenOpened": "2026-03-09T18:07:05.273Z",[m
+[31m-              "EditorCaption": ""[m
+[31m-            },[m
+[31m-            {[m
+[31m-              "$type": "Document",[m
+[31m-              "DocumentIndex": 6,[m
+               "Title": "MainWindowViewModel.cs",[m
+               "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\ViewModels\\MainWindowViewModel.cs",[m
+               "RelativeDocumentMoniker": "ViewModels\\MainWindowViewModel.cs",[m
+               "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\ViewModels\\MainWindowViewModel.cs",[m
+               "RelativeToolTip": "ViewModels\\MainWindowViewModel.cs",[m
+[31m-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",[m
+[32m+[m[32m              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",[m
+               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",[m
+               "WhenOpened": "2026-02-21T18:26:53.58Z",[m
+               "EditorCaption": ""[m
+[36m@@ -106,24 +102,12 @@[m
+             {[m
+               "$type": "Document",[m
+               "DocumentIndex": 5,[m
+[31m-              "Title": "MainWindow.axaml",[m
+[31m-              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml",[m
+[31m-              "RelativeDocumentMoniker": "Views\\MainWindow.axaml",[m
+[31m-              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml",[m
+[31m-              "RelativeToolTip": "Views\\MainWindow.axaml",[m
+[31m-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",[m
+[31m-              "WhenOpened": "2026-02-03T15:50:32.689Z",[m
+[31m-              "EditorCaption": ""[m
+[31m-            },[m
+[31m-            {[m
+[31m-              "$type": "Document",[m
+[31m-              "DocumentIndex": 2,[m
+               "Title": "MainWindow.axaml.cs",[m
+               "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml.cs",[m
+               "RelativeDocumentMoniker": "Views\\MainWindow.axaml.cs",[m
+               "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml.cs",[m
+               "RelativeToolTip": "Views\\MainWindow.axaml.cs",[m
+[31m-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAPAAAAAAAAAA==",[m
+[32m+[m[32m              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",[m
+               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",[m
+               "WhenOpened": "2026-02-21T18:15:01.233Z",[m
+               "EditorCaption": ""[m
+[1mdiff --git a/.vs/VaMME/v17/DocumentLayout.json b/.vs/VaMME/v17/DocumentLayout.json[m
+[1mindex dd8f871..b0a6186 100644[m
+[1m--- a/.vs/VaMME/v17/DocumentLayout.json[m
+[1m+++ b/.vs/VaMME/v17/DocumentLayout.json[m
+[36m@@ -15,20 +15,16 @@[m
+       "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"[m
+     },[m
+     {[m
+[31m-      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+[31m-      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+[31m-    },[m
+[31m-    {[m
+[31m-      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\testwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+[31m-      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\testwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+[32m+[m[32m      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+[32m+[m[32m      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+     },[m
+     {[m
+[31m-      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\testwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",[m
+[31m-      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\testwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"[m
+[32m+[m[32m      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+[32m+[m[32m      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+     },[m
+     {[m
+[31m-      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+[31m-      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+[32m+[m[32m      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",[m
+[32m+[m[32m      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"[m
+     }[m
+   ],[m
+   "DocumentGroupContainers": [[m
+[36m@@ -38,18 +34,31 @@[m
+       "DocumentGroups": [[m
+         {[m
+           "DockedWidth": 200,[m
+[31m-          "SelectedChildIndex": 1,[m
+[32m+[m[32m          "SelectedChildIndex": 2,[m
+           "Children": [[m
+             {[m
+               "$type": "Document",[m
+[31m-              "DocumentIndex": 1,[m
+[31m-              "Title": "Engine.axaml",[m
+[31m-              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml",[m
+[31m-              "RelativeDocumentMoniker": "Views\\Engine.axaml",[m
+[31m-              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml",[m
+[31m-              "RelativeToolTip": "Views\\Engine.axaml",[m
+[32m+[m[32m              "DocumentIndex": 4,[m
+[32m+[m[32m              "Title": "App.axaml.cs",[m
+[32m+[m[32m              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\App.axaml.cs",[m
+[32m+[m[32m              "RelativeDocumentMoniker": "App.axaml.cs",[m
+[32m+[m[32m              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\App.axaml.cs",[m
+[32m+[m[32m              "RelativeToolTip": "App.axaml.cs",[m
+[32m+[m[32m              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",[m
+[32m+[m[32m              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",[m
+[32m+[m[32m              "WhenOpened": "2026-03-18T11:10:10.377Z",[m
+[32m+[m[32m              "EditorCaption": ""[m
+[32m+[m[32m            },[m
+[32m+[m[32m            {[m
+[32m+[m[32m              "$type": "Document",[m
+[32m+[m[32m              "DocumentIndex": 2,[m
+[32m+[m[32m              "Title": "MainWindow.axaml",[m
+[32m+[m[32m              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml",[m
+[32m+[m[32m              "RelativeDocumentMoniker": "Views\\MainWindow.axaml",[m
+[32m+[m[32m              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml",[m
+[32m+[m[32m              "RelativeToolTip": "Views\\MainWindow.axaml",[m
+               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",[m
+[31m-              "WhenOpened": "2026-03-09T18:18:02.318Z",[m
+[32m+[m[32m              "WhenOpened": "2026-02-03T15:50:32.689Z",[m
+               "EditorCaption": ""[m
+             },[m
+             {[m
+[36m@@ -60,70 +69,45 @@[m
+               "RelativeDocumentMoniker": "Views\\Engine.axaml.cs",[m
+               "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml.cs",[m
+               "RelativeToolTip": "Views\\Engine.axaml.cs",[m
+[31m-              "ViewState": "AgIAAH0DAAAAAAAAAAAowIkDAAApAAAAAAAAAA==",[m
+[32m+[m[32m              "ViewState": "AgIAAKgAAAAAAAAAAAAowLoAAAAIAAAAAAAAAA==",[m
+               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",[m
+               "WhenOpened": "2026-03-09T18:18:02.251Z",[m
+               "EditorCaption": ""[m
+             },[m
+             {[m
+               "$type": "Document",[m
+[31m-              "DocumentIndex": 5,[m
+[31m-              "Title": "testwindow.axaml",[m
+[31m-              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml",[m
+[31m-              "RelativeDocumentMoniker": "Views\\testwindow.axaml",[m
+[31m-              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml",[m
+[31m-              "RelativeToolTip": "Views\\testwindow.axaml",[m
+[32m+[m[32m              "DocumentIndex": 1,[m
+[32m+[m[32m              "Title": "Engine.axaml",[m
+[32m+[m[32m              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml",[m
+[32m+[m[32m              "RelativeDocumentMoniker": "Views\\Engine.axaml",[m
+[32m+[m[32m              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml",[m
+[32m+[m[32m              "RelativeToolTip": "Views\\Engine.axaml",[m
+               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",[m
+[31m-              "WhenOpened": "2026-03-09T18:07:05.4Z",[m
+[31m-              "EditorCaption": ""[m
+[31m-            },[m
+[31m-            {[m
+[31m-              "$type": "Document",[m
+[31m-              "DocumentIndex": 4,[m
+[31m-              "Title": "testwindow.axaml.cs",[m
+[31m-              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml.cs",[m
+[31m-              "RelativeDocumentMoniker": "Views\\testwindow.axaml.cs",[m
+[31m-              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml.cs",[m
+[31m-              "RelativeToolTip": "Views\\testwindow.axaml.cs",[m
+[31m-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",[m
+[31m-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",[m
+[31m-              "WhenOpened": "2026-03-09T18:07:05.273Z",[m
+[32m+[m[32m              "WhenOpened": "2026-03-09T18:18:02.318Z",[m
+               "EditorCaption": ""[m
+             },[m
+             {[m
+               "$type": "Document",[m
+[31m-              "DocumentIndex": 6,[m
+[32m+[m[32m              "DocumentIndex": 3,[m
+               "Title": "MainWindowViewModel.cs",[m
+               "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\ViewModels\\MainWindowViewModel.cs",[m
+               "RelativeDocumentMoniker": "ViewModels\\MainWindowViewModel.cs",[m
+               "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\ViewModels\\MainWindowViewModel.cs",[m
+               "RelativeToolTip": "ViewModels\\MainWindowViewModel.cs",[m
+[31m-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",[m
+[32m+[m[32m              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",[m
+               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",[m
+               "WhenOpened": "2026-02-21T18:26:53.58Z",[m
+               "EditorCaption": ""[m
+             },[m
+             {[m
+               "$type": "Document",[m
+[31m-              "DocumentIndex": 2,[m
+[31m-              "Title": "MainWindow.axaml",[m
+[31m-              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml",[m
+[31m-              "RelativeDocumentMoniker": "Views\\MainWindow.axaml",[m
+[31m-              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml",[m
+[31m-              "RelativeToolTip": "Views\\MainWindow.axaml",[m
+[31m-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",[m
+[31m-              "WhenOpened": "2026-02-03T15:50:32.689Z",[m
+[31m-              "EditorCaption": ""[m
+[31m-            },[m
+[31m-            {[m
+[31m-              "$type": "Document",[m
+[31m-              "DocumentIndex": 3,[m
+[32m+[m[32m              "DocumentIndex": 5,[m
+               "Title": "MainWindow.axaml.cs",[m
+               "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml.cs",[m
+               "RelativeDocumentMoniker": "Views\\MainWindow.axaml.cs",[m
+               "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml.cs",[m
+               "RelativeToolTip": "Views\\MainWindow.axaml.cs",[m
+[31m-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAAAPAAAAAAAAAA==",[m
+[32m+[m[32m              "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAAAAAAAAAAAA==",[m
+               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",[m
+               "WhenOpened": "2026-02-21T18:15:01.233Z",[m
+               "EditorCaption": ""[m
+[1mdiff --git a/App.axaml.cs b/App.axaml.cs[m
+[1mindex 49bb38a..8a88822 100644[m
+[1m--- a/App.axaml.cs[m
+[1m+++ b/App.axaml.cs[m
+[36m@@ -9,6 +9,7 @@[m [musing VaMME.Views;[m
+ [m
+ namespace VaMME[m
+ {[m
+[32m+[m
+     public partial class App : Application[m
+     {[m
+         public override void Initialize()[m
+[1mdiff --git a/ViewModels/MainWindowViewModel.cs b/ViewModels/MainWindowViewModel.cs[m
+[1mindex db3e28f..49306d0 100644[m
+[1m--- a/ViewModels/MainWindowViewModel.cs[m
+[1m+++ b/ViewModels/MainWindowViewModel.cs[m
+[36m@@ -1,11 +1,12 @@[m
+ ﻿using Avalonia.Controls;[m
+ using Avalonia.Data;[m
+[32m+[m[32musing System.Collections.Generic;[m
+ using System.Diagnostics;[m
+ [m
+ namespace VaMME.ViewModels[m
+ {[m
+     public partial class MainWindowViewModel : ViewModelBase[m
+     {[m
+[31m-        [m
+[32m+[m
+     }[m
+ }[m
+[1mdiff --git a/Views/Engine.axaml b/Views/Engine.axaml[m
+[1mindex 7f36c77..c37c3f8 100644[m
+[1m--- a/Views/Engine.axaml[m
+[1m+++ b/Views/Engine.axaml[m
+[36m@@ -8,7 +8,93 @@[m
+ [m
+     <StackPanel Margin="10" Spacing="8">[m
+ [m
+[31m-        <MenuItem Header="Abort task." ToolTip.Tip="WARNING! Clicking this button will abort any and all tasks currently in progress!" Click="AbortTask"></MenuItem>[m
+[32m+[m[32m        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">[m
+[32m+[m[32m            <TextBox IsEnabled="True"   Name="files"            ToolTip.Tip="Here you should enter the complete file path of your file: an example would be 'C:\myFolder\my other folder\myFile.vmt'. Duplicate files are not allowed." Watermark="Enter your files here."></TextBox>[m
+[32m+[m[32m            <Button  IsEnabled="True"   Name="addFileButton"    ToolTip.Tip="Clicking this button will add your desired file to the list of files. Invalid, duplicate or nonexisting files will not be accepted." Content="Add File..." Click="addFileButton_Click" Grid.Column="1"></Button>[m
+[32m+[m[32m        </Grid>[m
+[32m+[m
+[32m+[m[32m        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">[m
+[32m+[m[32m            <TextBox IsEnabled="True"   Name="folders"         ToolTip.Tip="Here you should enter the complete file path of your folder: an example would be 'C:\myFolder\my other folder\'. Duplicate folders are not allowed."   Watermark="Enter your folders here."         ></TextBox>[m
+[32m+[m[32m            <Button  IsEnabled="True"   Name="addFolderButton" ToolTip.Tip="Clicking this button will add your desired folder to the list of folders. Invalid, duplicate or nonexisting folders will not be accepted."   Content="Add Folder..." Click="addFolderButton_Click" Grid.Column="1"></Button>[m
+[32m+[m[32m        </Grid>[m
+[32m+[m
+[32m+[m[32m        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">[m
+[32m+[m[32m            <TextBox IsEnabled="True"   Name="parameterKeys"   ToolTip.Tip="Here you should enter your parameter keys, one at a time. An example input would be '$basetexture'. Invalid or duplicate parameters are not accepted. All parameters must start with '$'. Each parameter must be accompanied by a value, which must be entered in the field below this one."   Watermark="Enter your parameter keys here."  ></TextBox>[m
+[32m+[m[32m        </Grid>[m
+[32m+[m
+[32m+[m[32m        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">[m
+[32m+[m[32m            <TextBox    IsEnabled="True"    Name="parameterValues"          ToolTip.Tip="Here you should enter your parameter values, one at a time. An example input would be 'myFolder/my other folder/myTextureFile.vtf', or '{0 0 0}', etc., depending on what parameter key is being provided. Duplicate parameter values are accepted. Parameter values can be anything, please verify before submitting. Each parameter value must be accompanied by a key, which must be entered in the field above this one." Watermark="Enter your parameter values here."></TextBox>[m
+[32m+[m[32m            <Button     IsEnabled="True"    Name="addParameterPairButton"   ToolTip.Tip="Clicking this button will add your desired parameter to the list of parameters. Invalid, duplicate or nonexisting parameters will not be accepted. Parameter keys with no value or parameter values with no keys are also not accepted. " Content="Add Parameter..." Click="addParameterPairButton_Click" Grid.Column="1"></Button>[m
+[32m+[m[32m        </Grid>[m
+[32m+[m
+[32m+[m[32m        <TextBlock Text="Files to be affected: "></TextBlock>[m
+[32m+[m
+[32m+[m[32m        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">[m
+[32m+[m[32m            <Border BorderBrush="Gray"[m
+[32m+[m[32m                BorderThickness="2"[m
+[32m+[m[32m                Padding="4"[m
+[32m+[m[32m                Margin="4">[m
+[32m+[m[41m                [m
+[32m+[m[32m                <ScrollViewer Name="fileScroller" MaxHeight="100" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">[m
+[32m+[m[32m                    <SelectableTextBlock Name="currentFiles" FontFamily="Consolas"/>[m
+[32m+[m[32m                </ScrollViewer>[m
+[32m+[m[32m            </Border>[m
+[32m+[m
+[32m+[m[32m            <Button Grid.Column="1" Content="Remove last..." ToolTip.Tip="WARNING! Clicking this button will remove the last added file from the list." Click="removeLastFile"></Button>[m
+[32m+[m[32m        </Grid>[m
+[32m+[m
+[32m+[m[32m        <TextBlock Text="Folders to be affected: "></TextBlock>[m
+[32m+[m
+[32m+[m[32m        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">[m
+[32m+[m[32m            <Border BorderBrush="Gray"[m
+[32m+[m[32m                BorderThickness="2"[m
+[32m+[m[32m                Padding="4"[m
+[32m+[m[32m                Margin="4">[m
+[32m+[m[32m                <ScrollViewer Name="folderScroller" MaxHeight="100" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">[m
+[32m+[m[32m                    <SelectableTextBlock Name="currentFolders" FontFamily="Consolas"/>[m
+[32m+[m[32m                </ScrollViewer>[m
+[32m+[m[32m            </Border>[m
+[32m+[m
+[32m+[m[32m            <Button Grid.Column="1" Content="Remove last..." ToolTip.Tip="WARNING! Clicking this button will remove the last added folder from the list." Click="removeLastFolder"></Button>[m
+[32m+[m[32m        </Grid>[m
+[32m+[m
+[32m+[m[32m        <TextBlock Text="Parameters to be written: "></TextBlock>[m
+[32m+[m
+[32m+[m[32m        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">[m
+[32m+[m[32m            <Border BorderBrush="Gray"[m
+[32m+[m[32m                BorderThickness="2"[m
+[32m+[m[32m                Padding="4"[m
+[32m+[m[32m                Margin="4">[m
+[32m+[m[32m                <ScrollViewer Name="parameterScroller" MaxHeight="200" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">[m
+[32m+[m[32m                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">[m
+[32m+[m[32m                        <SelectableTextBlock    Name="gridParameterKeys"></SelectableTextBlock>[m
+[32m+[m[32m                        <SelectableTextBlock    Name="gridParameterValues" Grid.Column="1"></SelectableTextBlock>[m
+[32m+[m[32m                    </Grid>[m
+[32m+[m[32m                </ScrollViewer>[m
+[32m+[m[32m            </Border>[m
+[32m+[m
+[32m+[m[32m            <Button Grid.Column="1" Content="Remove last..." ToolTip.Tip="WARNING! Clicking this button will remove the last added pair of parameters from the list." Click="removeLastParameterPair"></Button>[m
+[32m+[m[32m        </Grid>[m
+[32m+[m
+[32m+[m[32m        <TextBlock Text="Log: "></TextBlock>[m
+[32m+[m
+[32m+[m[32m        <Border BorderBrush="Gray"[m
+[32m+[m[32m            BorderThickness="2"[m
+[32m+[m[32m            Padding="4"[m
+[32m+[m[32m            Margin="4">[m
+[32m+[m
+[32m+[m[32m            <ScrollViewer Name="logScroller" MaxHeight="200" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">[m
+[32m+[m[32m                <SelectableTextBlock Name="log" FontFamily="Consolas" FontWeight="Bold"/>[m
+[32m+[m[32m            </ScrollViewer>[m
+[32m+[m
+[32m+[m[32m        </Border>[m
+[32m+[m
+[32m+[m[32m        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">[m
+[32m+[m[32m            <Button Content="Exit task."    ToolTip.Tip="WARNING! Clicking this button will abort any and all tasks currently in progress, as well as erasing all provided inputs!" Click="AbortTask" Foreground="OrangeRed"></Button>[m
+[32m+[m[32m            <Button Content="Execute task." ToolTip.Tip="WARNING! Clicking this button will initiate the current task with the currently-provided target files/folders and/or parameters. Ensure that you are happy with the provided details before proceeding!" Click="StartTask" Foreground="Lime" Grid.Column="1"></Button>[m
+[32m+[m[32m        </Grid>[m
+[32m+[m[41m      [m
+[32m+[m
+     </StackPanel>[m
+ [m
+ </Window>[m
+[1mdiff --git a/Views/Engine.axaml.cs b/Views/Engine.axaml.cs[m
+[1mindex 9de4ed8..a14d3b5 100644[m
+[1m--- a/Views/Engine.axaml.cs[m
+[1m+++ b/Views/Engine.axaml.cs[m
+[36m@@ -1,12 +1,18 @@[m
+ using Avalonia;[m
+ using Avalonia.Controls;[m
+[32m+[m[32musing Avalonia.Controls.Documents;[m
+ using Avalonia.Markup.Xaml;[m
+[32m+[m[32musing Avalonia.Media;[m
+ using System;[m
+[32m+[m[32musing System.Collections;[m
+ using System.Collections.Generic;[m
+[32m+[m[32musing System.Collections.Specialized;[m
+ using System.Diagnostics;[m
+ using System.IO;[m
+ using System.Linq;[m
+ using System.Text.RegularExpressions;[m
+[32m+[m[32musing Tmds.DBus.Protocol;[m
+[32m+[m[32musing VaMME.ViewModels;[m
+ using VaMME.Views;[m
+ [m
+ namespace VaMME;[m
+[36m@@ -14,18 +20,44 @@[m [mnamespace VaMME;[m
+ public static class ErrMsgs[m
+ {[m
+     public const string DIRNOTFOUND = "The specified directory does not exist!";[m
+[32m+[m[32m    public const string NULLDIR = "No directory was specified!";[m
+[32m+[m[32m    public const string NULLFILE = "No file was specified!";[m
+     public const string FILENOTFOUND = "The specified file does not exist!";[m
+     public const string ACCESSDENIED = "Access is denied!";[m
+     public const string INVALIDINPUT = "The input is invalid!";[m
+[32m+[m[32m    public const string NOPARAM = "No parameter was provided!";[m
+[32m+[m[32m    public const string NOPARAMVAL = "No parameter value was provided!";[m
+[32m+[m[32m    public const string INVALIDPARAM = "Invalid parameter was provided!";[m
+[32m+[m[32m    public const string DUPLICATEPARAM = "Parameter already exists in the list!";[m
+[32m+[m[32m    public const string DUPLICATEFILE = "File already exists in the list!";[m
+[32m+[m[32m    public const string DUPLICATEFOLDER = "Folder already exists in the list!";[m
+ }[m
+ [m
+ public static class WrnMsgs[m
+ {[m
+     public const string USINGCRUDELINES = "You are using a crude line editing tool! This is not recommended! Please use another approach if possible!";[m
+[32m+[m[32m    public const string REMOVEDPARAM = "Removed parameter pair!";[m
+[32m+[m[32m    public const string REMOVEDFILE = "Removed file!";[m
+[32m+[m[32m    public const string REMOVEDFOLDER = "Removed folder!";[m
+ }[m
+ [m
+ public partial class Engine : Window[m
+ {[m
+[32m+[m[32m    private List<string> dirList;[m
+[32m+[m[32m    private List<string> fileList;[m
+[32m+[m[32m    private OrderedDictionary parametersList;[m
+[32m+[m
+[32m+[m[32m    public IBrush errorColor = Brushes.OrangeRed;[m
+[32m+[m[32m    public IBrush warningColor = Brushes.Gold;[m
+[32m+[m[32m    public IBrush successColor = Brushes.Lime;[m
+[32m+[m[32m    public IBrush textGenericColor = Brushes.White;[m
+[32m+[m[32m    public IBrush[] textBackgroundColor = { Brushes.Black, Brushes.DarkBlue };[m
+[32m+[m
+[32m+[m[32m    private bool alternateLogLineColor = false;[m
+[32m+[m[32m    private bool alternateGridLineColor = false;[m
+[32m+[m[32m    private bool alternateFileLineColor = false;[m
+[32m+[m[32m    private bool alternateFolderLineColor = false;[m
+[32m+[m
+     private HashSet<string> batchsource = new HashSet<string>();[m
+ [m
+     string targetFileExtension = "*.vmt";[m
+[36m@@ -154,6 +186,10 @@[m [mpublic partial class Engine : Window[m
+     {[m
+         InitializeComponent();[m
+ [m
+[32m+[m[32m        dirList = new List<string>();[m
+[32m+[m[32m        fileList = new List<string>();[m
+[32m+[m[32m        parametersList = new OrderedDictionary();[m
+[32m+[m
+         for (int i = 0; i < validvmtparameters.Length; i++)[m
+         {[m
+             validparams.Add(validvmtparameters[i]);[m
+[36m@@ -166,6 +202,8 @@[m [mpublic partial class Engine : Window[m
+ [m
+         setTaskID(taskID);[m
+ [m
+[32m+[m[32m        Debug.WriteLine($"Started new Engine with task {(EngineOperations)taskID}");[m
+[32m+[m
+         //ExecuteTask();[m
+     }[m
+ [m
+[36m@@ -181,19 +219,22 @@[m [mpublic partial class Engine : Window[m
+ [m
+     private void ExecuteTask()[m
+     {[m
+[31m-        Debug.Write("Task with ID {0} has been executed.", taskID.ToString());[m
+[32m+[m[32m        issueNormalMessage($"Task with ID {taskID.ToString()} has been executed.");[m
+ [m
+         if (taskID == 1)[m
+         {[m
+[31m-            amendfilesindirectory();[m
+[32m+[m[32m            amendfilesindirectory(dirList, parametersList);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        else if (taskID == 2)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            //take one or more directory paths[m
+[32m+[m[32m            //create a hashset that contains all subdirectories[m
+[32m+[m[32m            //[m
+         }[m
+     }[m
+ [m
+     private void ReturnToMain()[m
+     {[m
+[31m-        var mainWindow = new MainWindow();[m
+[31m-        mainWindow.Show();[m
+[31m-[m
+         this.Close();[m
+     }[m
+ [m
+[36m@@ -202,70 +243,78 @@[m [mpublic partial class Engine : Window[m
+         ReturnToMain();[m
+     }[m
+ [m
+[31m-    void amendfilesindirectory()[m
+[32m+[m[32m    private void StartTask(object? sender, Avalonia.Interactivity.RoutedEventArgs e)[m
+     {[m
+[31m-        bool donebatching = false;[m
+[31m-[m
+[31m-        string source = "";[m
+[31m-[m
+[31m-        List<string> batchsource = new List<string>();[m
+[32m+[m[32m        ExecuteTask();[m
+[32m+[m[32m    }[m
+ [m
+[31m-        while (!donebatching)[m
+[32m+[m[32m    private void removeLastParameterPair(object? sender, Avalonia.Interactivity.RoutedEventArgs e)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        if (parametersList.Count <= 0)[m
+         {[m
+[31m-            Console.WriteLine(@"Please enter your target directory, in format 'C:\DirectoryName1\DirectoryName2\DirectoryName3'. ");[m
+[31m-            Console.WriteLine("Press enter to finish batch processing, or type X to return to the menu: ");[m
+[31m-[m
+[31m-            source = @"C:\";[m
+[31m-[m
+[31m-            source = Console.ReadLine();[m
+[31m-[m
+[31m-            if (source == "X" || source == "x")[m
+[31m-            {[m
+[31m-                Console.Clear();[m
+[31m-                Console.WriteLine("Returning to the main menu...");[m
+[31m-                return;[m
+[31m-            }[m
+[32m+[m[32m            issueErrorMessage_NoExc("Attempted to remove parameter pair from empty list! Ignoring...");[m
+[32m+[m[32m        }[m
+[32m+[m[32m        else[m
+[32m+[m[32m        {[m
+[32m+[m[32m            issueWarningMessage(WrnMsgs.REMOVEDPARAM);[m
+[32m+[m[32m            parametersList.RemoveAt(parametersList.Count - 1);[m
+[32m+[m[32m            redrawParametersToUI();[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+ [m
+[31m-            if (source == "")[m
+[31m-            {[m
+[31m-                donebatching = true;[m
+[31m-                break;[m
+[31m-            }[m
+[32m+[m[32m    private void removeLastFolder(object? sender, Avalonia.Interactivity.RoutedEventArgs e)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        if (dirList.Count <= 0)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            issueErrorMessage_NoExc("Attempted to remove folder from empty list! Ignoring...");[m
+[32m+[m[32m        }[m
+[32m+[m[32m        else[m
+[32m+[m[32m        {[m
+[32m+[m[32m            issueWarningMessage(WrnMsgs.REMOVEDFOLDER);[m
+[32m+[m[32m            dirList.RemoveAt(dirList.Count - 1);[m
+[32m+[m[32m            redrawFoldersToUI();[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+ [m
+[31m-            if (dirExists(source))[m
+[31m-            {[m
+[31m-                batchsource.Add(source);[m
+[31m-            }[m
+[32m+[m[32m    private void removeLastFile(object? sender, Avalonia.Interactivity.RoutedEventArgs e)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        if (fileList.Count <= 0)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            issueErrorMessage_NoExc("Attempted to remove file from empty list! Ignoring...");[m
+         }[m
+[32m+[m[32m        else[m
+[32m+[m[32m        {[m
+[32m+[m[32m            issueWarningMessage(WrnMsgs.REMOVEDFILE);[m
+[32m+[m[32m            fileList.RemoveAt(fileList.Count - 1);[m
+[32m+[m[32m            redrawFilesToUI();[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+[32m+[m[32m    void amendfilesindirectory(List<string> batchsource, OrderedDictionary par)[m
+[32m+[m[32m    {[m
+         List<string> contents = new List<string>();[m
+ [m
+[31m-        Dictionary<string, string> par = new Dictionary<string, string>();[m
+[31m-[m
+[31m-        par = getParams();[m
+[31m-[m
+         if (par.Count <= 0)[m
+         {[m
+[31m-            Console.WriteLine("No parameters provided. Returning to the menu...");[m
+[32m+[m[32m            issueErrorMessage_NoExc(ErrMsgs.NOPARAM);[m
+             return;[m
+         }[m
+ [m
+[31m-        Console.Clear();[m
+[31m-[m
+         foreach (string dir in batchsource)[m
+         {[m
+[31m-            Console.WriteLine("Working in {0}...", dir);[m
+[32m+[m[32m            issueNormalMessage($"Working in {dir}...");[m
+             try[m
+             {[m
+                 foreach (string file in Directory.EnumerateFiles(dir, "*.vmt"))[m
+                 {[m
+[31m-                    Console.WriteLine("Found file {0}...", file);[m
+[32m+[m[32m                    issueNormalMessage($"Found file {file}...");[m
+ [m
+                     contents.AddRange(getParameterisedFile(file, par));[m
+ [m
+                     foreach (var item in contents)[m
+                     {[m
+[31m-                        Console.WriteLine(item);[m
+[32m+[m[32m                        issueNormalMessage(item);[m
+                     }[m
+ [m
+                     writeFile(file, ref contents);[m
+[36m@@ -275,160 +324,75 @@[m [mpublic partial class Engine : Window[m
+             }[m
+             catch (Exception e)[m
+             {[m
+[31m-                issueErrorMessage(ErrMsgs.DIRNOTFOUND, e);[m
+[32m+[m[32m                issueErrorMessage(ErrMsgs.DIRNOTFOUND + $" Dir: {dir}", e);[m
+             }[m
+ [m
+[31m-            Console.WriteLine("Work in {0} complete!\n", dir);[m
+[32m+[m[32m            issueSuccessMessage($"Work in {dir} complete!");[m
+         }[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     bool dirExists(string path)[m
+     {[m
+         if (path == null || path == "")[m
+         {[m
+[32m+[m[32m            issueErrorMessage_NoExc(ErrMsgs.NULLDIR);[m
+             return false;[m
+         }[m
+ [m
+         if (Directory.Exists(path))[m
+         {[m
+[31m-            Console.Clear();[m
+[31m-            Console.WriteLine("Directory at path>\n");[m
+[31m-            Console.WriteLine(path);[m
+[31m-            Console.WriteLine("\n< has been located successfully!\n");[m
+[32m+[m[32m            issueSuccessMessage($"Directory at path > {path} < has been located successfully!");[m
+             return true;[m
+         }[m
+ [m
+[31m-        Console.Clear();[m
+[31m-        issueErrorMessage_NoExc(ErrMsgs.DIRNOTFOUND);[m
+[32m+[m[32m        issueErrorMessage_NoExc(ErrMsgs.DIRNOTFOUND + $" Dir: {path}");[m
+         return false;[m
+[31m-[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     bool fileExists(string path)[m
+     {[m
+[31m-        if (File.Exists(path))[m
+[31m-        {[m
+[31m-            Console.Clear();[m
+[31m-            Console.WriteLine("File at path>\n");[m
+[31m-            Console.WriteLine(path);[m
+[31m-            Console.WriteLine("\n< has been located successfully!\n");[m
+[31m-            return true;[m
+[31m-        }[m
+[31m-[m
+[31m-        Console.Clear();[m
+[31m-        issueErrorMessage_NoExc(ErrMsgs.FILENOTFOUND);[m
+[31m-        return false;[m
+[31m-[m
+[31m-    }[m
+[31m-[m
+[31m-    string validateDir()[m
+[31m-    {[m
+[31m-        bool validDir = false;[m
+[31m-[m
+[31m-        string s = "";[m
+[31m-[m
+[31m-        while (!validDir)[m
+[31m-        {[m
+[31m-            Console.WriteLine("Enter your desired directory: ");[m
+[31m-[m
+[31m-            s = Console.ReadLine();[m
+[31m-[m
+[31m-            if (dirExists(s))[m
+[31m-            {[m
+[31m-                validDir = true;[m
+[31m-                break;[m
+[31m-            }[m
+[31m-        }[m
+[31m-[m
+[31m-        return s;[m
+[31m-    }[m
+[31m-[m
+[31m-    string validateFile()[m
+[31m-    {[m
+[31m-        bool validFile = false;[m
+[31m-[m
+[31m-        string s = "";[m
+[31m-[m
+[31m-        while (!validFile)[m
+[32m+[m[32m        if (path == null || path == "")[m
+         {[m
+[31m-            Console.WriteLine("Enter your desired file: ");[m
+[31m-[m
+[31m-            s = Console.ReadLine();[m
+[31m-[m
+[31m-            if (fileExists(s))[m
+[31m-            {[m
+[31m-                validFile = true;[m
+[31m-                break;[m
+[31m-            }[m
+[32m+[m[32m            issueErrorMessage_NoExc(ErrMsgs.NULLFILE);[m
+[32m+[m[32m            return false;[m
+         }[m
+ [m
+[31m-        return s;[m
+[31m-    }[m
+[31m-[m
+[31m-    List<string> validateMultiDir()[m
+[31m-    {[m
+[31m-        bool exit = false;[m
+[31m-[m
+[31m-        List<string> s = new List<string>();[m
+[31m-[m
+[31m-        string input = "NULL";[m
+[31m-[m
+[31m-        while (!exit)[m
+[32m+[m[32m        if (File.Exists(path))[m
+         {[m
+[31m-            Console.WriteLine("Enter one of your desired directories: ");[m
+[31m-[m
+[31m-            input = Console.ReadLine();[m
+[31m-[m
+[31m-            if (input == "")[m
+[31m-            {[m
+[31m-                Console.WriteLine("Done adding...");[m
+[31m-                break;[m
+[31m-            }[m
+[31m-            if (dirExists(input))[m
+[31m-            {[m
+[31m-                s.Add(input);[m
+[31m-                Console.WriteLine("Successfully added directory '{0}' to list!\n", input);[m
+[31m-            }[m
+[32m+[m[32m            issueSuccessMessage($"File at path > {path} < has been located successfully!");[m
+[32m+[m[32m            return true;[m
+         }[m
+ [m
+[31m-        return s;[m
+[32m+[m[32m        issueErrorMessage_NoExc(ErrMsgs.FILENOTFOUND + $" File: {path}");[m
+[32m+[m[32m        return false;[m
+     }[m
+ [m
+[31m-    List<string> validateMultiDirRecursive()[m
+[32m+[m[32m    //is atomic? Y[m
+[32m+[m[32m    List<string> validateMultiDirRecursive(string path)[m
+     {[m
+[31m-        bool exit = false;[m
+[31m-[m
+         List<string> s = new List<string>();[m
+ [m
+[31m-        string input = "NULL";[m
+[31m-[m
+[31m-        while (!exit)[m
+[31m-        {[m
+[31m-            Console.WriteLine("Enter your desired recursive directory: ");[m
+[31m-[m
+[31m-            input = Console.ReadLine();[m
+[31m-[m
+[31m-            if (dirExists(input))[m
+[31m-            {[m
+[31m-                s.AddRange(getAllSubdirs(input));[m
+[31m-                Console.WriteLine("Successfully added the subdirectories of '{0}' to the list!\n", input);[m
+[31m-                break;[m
+[31m-            }[m
+[31m-        }[m
+[32m+[m[32m        s.AddRange(getAllSubdirs(path));[m
+[32m+[m[32m        issueSuccessMessage($"Successfully added the subdirectories of '{path}' to the list!");[m
+ [m
+         return s;[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     string[] getAllSubdirFiles(string path)[m
+     {[m
+         return Directory.GetFiles(path, targetFileExtension, SearchOption.AllDirectories);[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     string[] getAllSubdirs(string path)[m
+     {[m
+         return Directory.GetDirectories(path);[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     string getFileNameFromPath(string filepath, string filedir)[m
+     {[m
+         string s;[m
+[36m@@ -438,6 +402,7 @@[m [mpublic partial class Engine : Window[m
+         return s;[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     string getFileName(string filepath)[m
+     {[m
+         string s = "";[m
+[36m@@ -463,6 +428,7 @@[m [mpublic partial class Engine : Window[m
+         return s;[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     string getFileName_NoExtension(string filepath)[m
+     {[m
+         bool foundExtensionPoint = false;[m
+[36m@@ -498,9 +464,10 @@[m [mpublic partial class Engine : Window[m
+         return s;[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? N[m
+     Dictionary<string, string> getParams()[m
+     {[m
+[31m-        Dictionary<string, string> x = new Dictionary<string, string>();[m
+[32m+[m[32m        Dictionary<string, string> parameterPairs = new Dictionary<string, string>();[m
+ [m
+         bool doneparam = false;[m
+ [m
+[36m@@ -511,9 +478,9 @@[m [mpublic partial class Engine : Window[m
+             Console.WriteLine("If no parameter is provided and enter is pressed, the program will return to the menu.");[m
+             Console.WriteLine("If a parameter was already provided, pressing enter will continue to the files being amended as requested.");[m
+ [m
+[31m-            displayParametersInDictionary(x);[m
+[32m+[m[32m            displayParametersInDictionary(parameterPairs);[m
+ [m
+[31m-            Console.WriteLine("\nPlease state your parameter, in format '$parametername': ");[m
+[32m+[m[32m            Console.WriteLine("Please state your parameter, in format '$parametername': ");[m
+ [m
+             string proc = Console.ReadLine();[m
+ [m
+[36m@@ -528,14 +495,15 @@[m [mpublic partial class Engine : Window[m
+                 //valid parameter has been found[m
+                 Console.Clear();[m
+                 Console.WriteLine("{0} is a valid parameter! Now enter its desired value: ", proc);[m
+[31m-                x.Add(proc, Console.ReadLine());[m
+[31m-                Console.WriteLine("\n Parameter >\n \"{0}\" \n< has been successfully added!\n", proc);[m
+[32m+[m[32m                parameterPairs.Add(proc, Console.ReadLine());[m
+[32m+[m[32m                Console.WriteLine("Parameter > \"{0}\" < has been successfully added!", proc);[m
+             }[m
+         }[m
+ [m
+[31m-        return x;[m
+[32m+[m[32m        return parameterPairs;[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? N[m
+     Dictionary<string, string> getParamsNoVal()[m
+     {[m
+         Dictionary<string, string> x = new Dictionary<string, string>();[m
+[36m@@ -551,7 +519,7 @@[m [mpublic partial class Engine : Window[m
+ [m
+             displayParametersInDictionaryNoVal(x);[m
+ [m
+[31m-            Console.WriteLine("\nPlease state your parameter, in format '$parametername': ");[m
+[32m+[m[32m            Console.WriteLine("Please state your parameter, in format '$parametername': ");[m
+ [m
+             string proc = Console.ReadLine();[m
+ [m
+[36m@@ -567,14 +535,15 @@[m [mpublic partial class Engine : Window[m
+                 Console.Clear();[m
+                 Console.WriteLine("{0} is a valid parameter!", proc);[m
+                 x.Add(proc, "");[m
+[31m-                Console.WriteLine("\n Parameter >\n \"{0}\" \n< has been successfully added!\n", proc);[m
+[32m+[m[32m                Console.WriteLine("Parameter > \"{0}\" < has been successfully added!", proc);[m
+             }[m
+         }[m
+ [m
+         return x;[m
+     }[m
+ [m
+[31m-    List<string> getParameterisedFile(string file, Dictionary<string, string> par)[m
+[32m+[m[32m    //is atomic? Y[m
+[32m+[m[32m    List<string> getParameterisedFile(string file, OrderedDictionary par)[m
+     {[m
+         List<string> x = new List<string>();[m
+ [m
+[36m@@ -589,13 +558,13 @@[m [mpublic partial class Engine : Window[m
+ [m
+                 if (match.Success)[m
+                 {[m
+[31m-                    foreach (KeyValuePair<string, string> entry in par)[m
+[32m+[m[32m                    foreach (DictionaryEntry entry in par)[m
+                     {[m
+                         //if the parameter has been found               [m
+[31m-                        if (match.Groups[1].Value == entry.Key)[m
+[32m+[m[32m                        if (match.Groups[1].Value == entry.Key.ToString())[m
+                         {[m
+[31m-                            s = $"                \"{entry.Key}\"     \"{entry.Value}\"";[m
+[31m-                            Console.WriteLine(">>> Found eligible parameter {0} in file...", entry.Key);[m
+[32m+[m[32m                            s = $"                \"{entry.Key.ToString()}\"     \"{entry.Value.ToString()}\"";[m
+[32m+[m[32m                            issueNormalMessage($">>> Found eligible parameter {entry.Key.ToString()} in file...");[m
+                         }[m
+                     }[m
+                 }[m
+[36m@@ -606,12 +575,13 @@[m [mpublic partial class Engine : Window[m
+ [m
+         foreach (var item in x)[m
+         {[m
+[31m-            Console.WriteLine(item);[m
+[32m+[m[32m            issueNormalMessage(item);[m
+         }[m
+ [m
+         return x;[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     List<string> getParameterisedFile_FullLine(string file, Dictionary<string, string> par)[m
+     {[m
+         List<string> x = new List<string>();[m
+[36m@@ -631,8 +601,8 @@[m [mpublic partial class Engine : Window[m
+                         if (match.Groups[1].Value.ToLower() == entry.Key.ToLower())[m
+                         {[m
+                             s = entry.Value;[m
+[31m-                            Console.WriteLine(">>> Found eligible parameter {0} in file...", entry.Key);[m
+[31m-                            Console.WriteLine(s);[m
+[32m+[m[32m                            issueNormalMessage($">>> Found eligible parameter {entry.Key} in file...");[m
+[32m+[m[32m                            issueNormalMessage(s);[m
+                         }[m
+                     }[m
+                 }[m
+[36m@@ -644,6 +614,7 @@[m [mpublic partial class Engine : Window[m
+         return x;[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     void copyFile(string file, string destination, string fn)[m
+     {[m
+         try[m
+[36m@@ -652,11 +623,12 @@[m [mpublic partial class Engine : Window[m
+         }[m
+         catch (Exception)[m
+         {[m
+[31m-            Console.WriteLine("Paste for '{0}' from '{1}' in '{2}' failed! Skipping...\n", fn, file, destination);[m
+[32m+[m[32m            issueWarningMessage($"Paste for '{fn}' from '{file}' in '{destination}' failed! Skipping...");[m
+         }[m
+[31m-        Console.WriteLine("Successfully pasted '{0}' in '{1}'!\n", fn, destination);[m
+[32m+[m[32m        issueSuccessMessage($"Successfully pasted '{fn}' in '{destination}'!");[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     void writeFile(string fileandpath, ref List<string> contents)[m
+     {[m
+         string filename = getFileName(fileandpath);[m
+[36m@@ -664,7 +636,7 @@[m [mpublic partial class Engine : Window[m
+ [m
+         using (StreamWriter writetext = new StreamWriter(fileandpath))[m
+         {[m
+[31m-            Console.WriteLine("New file contents on '{0}':\n", fileandpath);[m
+[32m+[m[32m            issueNormalMessage($"New file contents on '{fileandpath}':");[m
+ [m
+             for (int i = 0; i < contents.Count(); i++)[m
+             {[m
+[36m@@ -672,12 +644,13 @@[m [mpublic partial class Engine : Window[m
+                 {[m
+                     contents[i] = contents[i].Replace("@filename", filename_noext);[m
+                 }[m
+[31m-                Console.WriteLine(contents[i]);[m
+[32m+[m[32m                issueNormalMessage(contents[i]);[m
+                 writetext.WriteLine(contents[i]);[m
+             }[m
+         }[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     bool matchParamsToFile(string file, Dictionary<string, string> par)[m
+     {[m
+         int matchCounter = 0;[m
+[36m@@ -699,8 +672,8 @@[m [mpublic partial class Engine : Window[m
+                         {[m
+                             matchCounter++;[m
+                             par[entry.Key] = s;[m
+[31m-                            Console.WriteLine(">>> Found eligible parameter {0} in file...", entry.Key);[m
+[31m-                            Console.WriteLine(">>> Set value of '{0}' to '{1}'!", entry.Key, par[entry.Key]);[m
+[32m+[m[32m                            issueNormalMessage($">>> Found eligible parameter {entry.Key} in file...");[m
+[32m+[m[32m                            issueNormalMessage($">>> Set value of '{entry.Key}' to '{par[entry.Key]}'!");[m
+                         }[m
+                     }[m
+                 }[m
+[36m@@ -711,12 +684,11 @@[m [mpublic partial class Engine : Window[m
+ [m
+     }[m
+ [m
+[31m-    void addParameterToFile()[m
+[32m+[m[32m    //is atomic? Y[m
+[32m+[m[32m    void addParameterToFile(string file)[m
+     {[m
+         bool doneAdding = false;[m
+ [m
+[31m-        string file = validateFile();[m
+[31m-[m
+         string newLine = "";[m
+ [m
+         List<string> lineContent = new List<string>();[m
+[36m@@ -748,6 +720,7 @@[m [mpublic partial class Engine : Window[m
+         writeFile(file, ref lineContent);[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     void addParameterToFile_auto(Dictionary<string, string> par, string file)[m
+     {[m
+         bool doneAdding = false;[m
+[36m@@ -779,22 +752,18 @@[m [mpublic partial class Engine : Window[m
+         writeFile(file, ref lineContent);[m
+     }[m
+ [m
+[31m-    void addParameterToFiles()[m
+[32m+[m[32m    //is atomic? Y[m
+[32m+[m[32m    void addParameterToFiles(string dirPath, Dictionary<string, string> parameters)[m
+     {[m
+[31m-        string dir = validateDir();[m
+[31m-[m
+[31m-        Dictionary<string, string> parameters = getParams();[m
+[31m-[m
+[31m-        foreach (string file in Directory.EnumerateFiles(dir))[m
+[32m+[m[32m        foreach (string file in Directory.EnumerateFiles(dirPath))[m
+         {[m
+             addParameterToFile_auto(parameters, file);[m
+         }[m
+     }[m
+ [m
+[31m-    void addParameterToFilesInDirs()[m
+[32m+[m[32m    //is atomic? Y[m
+[32m+[m[32m    void addParameterToFilesInDirs(List<string> dirs)[m
+     {[m
+[31m-        List<string> dirs = validateMultiDir();[m
+[31m-[m
+         Dictionary<string, string> parameters = getParams();[m
+ [m
+         foreach (string dir in dirs)[m
+[36m@@ -806,6 +775,7 @@[m [mpublic partial class Engine : Window[m
+         }[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     List<string> getFileContents(string filename)[m
+     {[m
+         List<string> x = new List<string>();[m
+[36m@@ -822,6 +792,7 @@[m [mpublic partial class Engine : Window[m
+         return x;[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     List<string>? getFileContents_SpecificQuery(string filename, string searchedString) //if the file contains the specified string in any of the given lines, then the function returns the contents of the file, otherwise null[m
+     {[m
+         bool found = false;[m
+[36m@@ -849,11 +820,9 @@[m [mpublic partial class Engine : Window[m
+         return x;[m
+     }[m
+ [m
+[31m-    void createNewVMTsFromVTFdir()[m
+[32m+[m[32m    //is atomic? Y[m
+[32m+[m[32m    void createNewVMTsFromVTFdir(string source_dir, string base_file)[m
+     {[m
+[31m-        //find desired VMT[m
+[31m-        string base_file = validateFile();[m
+[31m-[m
+         int indexOfDetailInBaseFile = -1;[m
+ [m
+         //find detail attribute[m
+[36m@@ -861,7 +830,7 @@[m [mpublic partial class Engine : Window[m
+ [m
+         if (base_file_contents == null) //if a detail attribute is not found, return[m
+         {[m
+[31m-            Console.WriteLine("Selected file does not contain the specified parameter! Aborting...");[m
+[32m+[m[32m            issueWarningMessage("Selected file does not contain the specified parameter! Aborting...");[m
+             return;[m
+         }[m
+ [m
+[36m@@ -874,17 +843,15 @@[m [mpublic partial class Engine : Window[m
+             }[m
+         }[m
+ [m
+[31m-        string source_dir = validateDir();[m
+[31m-[m
+         IEnumerable<string> filesFound = Directory.EnumerateFiles(source_dir, "*.vtf");[m
+ [m
+         if (filesFound.Count() <= 0)[m
+         {[m
+[31m-            Console.WriteLine("Selected directory does not contain any valid .vtf files for use! Aborting...");[m
+[32m+[m[32m            issueWarningMessage("Selected directory does not contain any valid .vtf files for use! Aborting...");[m
+             return;[m
+         }[m
+ [m
+[31m-        Console.WriteLine("Enter the relative workpath of the source of the materials: ");[m
+[32m+[m[32m        issueNormalMessage("Enter the relative workpath of the source of the materials: ");[m
+         string specifiedPath = Console.ReadLine();[m
+ [m
+         foreach (var item in filesFound)[m
+[36m@@ -901,10 +868,9 @@[m [mpublic partial class Engine : Window[m
+         //then inject the detail parameter with the file path of the vtf file[m
+     }[m
+ [m
+[31m-    void fixFiles()[m
+[32m+[m[32m    //is atomic? Y[m
+[32m+[m[32m    void fixFiles(string sourceDir)[m
+     {[m
+[31m-        string sourceDir = validateDir();[m
+[31m-[m
+         IEnumerable<string> files = Directory.EnumerateFiles(sourceDir, "*.vmt");[m
+ [m
+         int detailIndex = -1;[m
+[36m@@ -924,7 +890,7 @@[m [mpublic partial class Engine : Window[m
+ [m
+                 if (item.Contains("\\"))[m
+                 {[m
+[31m-                    Console.WriteLine("Found back slash on line: " + item);[m
+[32m+[m[32m                    issueNormalMessage("Found back slash on line: " + item);[m
+                     wrongSlashIndices.Add(contentsoffile.IndexOf(item));[m
+                 }[m
+             }[m
+[36m@@ -935,15 +901,15 @@[m [mpublic partial class Engine : Window[m
+                 string stringAtDetail = contentsoffile[detailIndex];[m
+                 if (!stringAtDetail.Contains(".vtf"))[m
+                 {[m
+[31m-                    Console.WriteLine("Does not have a valid .vtf signature for detail.");[m
+[32m+[m[32m                    issueNormalMessage("Does not have a valid .vtf signature for detail.");[m
+                     stringAtDetail = stringAtDetail.Remove(stringAtDetail.Length - 1);[m
+                     stringAtDetail = stringAtDetail + ".vtf\"";[m
+ [m
+[31m-                    Console.WriteLine("Fix: " + stringAtDetail);[m
+[32m+[m[32m                    issueNormalMessage("Fix: " + stringAtDetail);[m
+ [m
+                     contentsoffile[detailIndex] = stringAtDetail;[m
+ [m
+[31m-                    Console.WriteLine("New line: " + contentsoffile[detailIndex]);[m
+[32m+[m[32m                    issueNormalMessage("New line: " + contentsoffile[detailIndex]);[m
+                 }[m
+ [m
+                 detailIndex = -1;[m
+[36m@@ -954,10 +920,10 @@[m [mpublic partial class Engine : Window[m
+                 foreach (var index in wrongSlashIndices)[m
+                 {[m
+                     string stringContainingWrongSlash = contentsoffile[index];[m
+[31m-                    Console.WriteLine("Found back slash line...: {0}", stringContainingWrongSlash);[m
+[32m+[m[32m                    issueNormalMessage($"Found back slash line...: {stringContainingWrongSlash}");[m
+                     stringContainingWrongSlash = stringContainingWrongSlash.Replace('\\', '/');[m
+                     contentsoffile[index] = stringContainingWrongSlash;[m
+[31m-                    Console.WriteLine("New line: " + contentsoffile[index]);[m
+[32m+[m[32m                    issueNormalMessage("New line: " + contentsoffile[index]);[m
+                 }[m
+ [m
+                 wrongSlashIndices.Clear();[m
+[36m@@ -967,58 +933,350 @@[m [mpublic partial class Engine : Window[m
+         }[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     void displayParametersInDictionary(Dictionary<string, string> x)[m
+     {[m
+[31m-        Console.WriteLine("\nCurrent parameters: \n");[m
+[31m-        Console.ForegroundColor = ConsoleColor.Yellow;[m
+[32m+[m[32m        issueNormalMessage("Current parameters: ");[m
+         if (x.Count < 1)[m
+         {[m
+[31m-            Console.WriteLine("No parameters added yet.");[m
+[32m+[m[32m            issueWarningMessage("No parameters added yet.");[m
+         }[m
+         foreach (var item in x)[m
+         {[m
+[31m-            Console.WriteLine("\"{0}\"  \"{1}\"", item.Key, item.Value);[m
+[32m+[m[32m            issueNormalMessage($"\"{item.Key}\"  \"{item.Value}\"");[m
+         }[m
+[31m-        Console.ForegroundColor = ConsoleColor.White;[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     void displayParametersInDictionaryNoVal(Dictionary<string, string> x)[m
+     {[m
+[31m-        Console.WriteLine("\nCurrent parameters: \n");[m
+[31m-        Console.ForegroundColor = ConsoleColor.Yellow;[m
+[32m+[m[32m        issueNormalMessage("Current parameters: ");[m
+         if (x.Count < 1)[m
+         {[m
+[31m-            Console.WriteLine("No parameters added yet.");[m
+[32m+[m[32m            issueWarningMessage("No parameters added yet.");[m
+         }[m
+         else[m
+         {[m
+             foreach (var item in x)[m
+             {[m
+[31m-                Console.WriteLine("\"{0}\"", item.Key);[m
+[32m+[m[32m                issueNormalMessage($"\"{item.Key}\"");[m
+             }[m
+         }[m
+[31m-        Console.ForegroundColor = ConsoleColor.White;[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     void issueWarningMessage(string message)[m
+     {[m
+[31m-        Console.ForegroundColor = ConsoleColor.DarkYellow;[m
+[31m-        Console.WriteLine("WARNING: {0} \n", message);[m
+[31m-        Console.ForegroundColor = ConsoleColor.White;[m
+[32m+[m[32m        alternateLogLineBackgroundColor();[m
+[32m+[m
+[32m+[m[32m        var c = textBackgroundColor[Convert.ToInt32(alternateLogLineColor)];[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new Run[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Text = "WARNING: " + message,[m
+[32m+[m[32m            Foreground = warningColor,[m
+[32m+[m[32m            Background = c[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new LineBreak());[m
+[32m+[m
+[32m+[m[32m        logScroller.ScrollToEnd();[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     void issueErrorMessage(string message, Exception e)[m
+     {[m
+[31m-        Console.ForegroundColor = ConsoleColor.Red;[m
+[31m-        Console.WriteLine("ERROR: {0} \n", message);[m
+[31m-        Console.WriteLine(e.ToString() + "\n");[m
+[31m-        Console.ForegroundColor = ConsoleColor.White;[m
+[32m+[m[32m        alternateLogLineBackgroundColor();[m
+[32m+[m
+[32m+[m[32m        var c = textBackgroundColor[Convert.ToInt32(alternateLogLineColor)];[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new Run[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Text = "ERROR: " + message,[m
+[32m+[m[32m            Foreground = errorColor,[m
+[32m+[m[32m            Background = c[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new LineBreak());[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new Run[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Text = e.ToString(),[m
+[32m+[m[32m            Foreground = errorColor,[m
+[32m+[m[32m            Background = c[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new LineBreak());[m
+[32m+[m
+[32m+[m[32m        logScroller.ScrollToEnd();[m
+     }[m
+ [m
+[32m+[m[32m    //is atomic? Y[m
+     void issueErrorMessage_NoExc(string message)[m
+     {[m
+[31m-        Console.ForegroundColor = ConsoleColor.Red;[m
+[31m-        Console.WriteLine("ERROR: {0} \n", message);[m
+[31m-        Console.ForegroundColor = ConsoleColor.White;[m
+[32m+[m[32m        alternateLogLineBackgroundColor();[m
+[32m+[m
+[32m+[m[32m        var c = textBackgroundColor[Convert.ToInt32(alternateLogLineColor)];[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new Run[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Text = "ERROR: " + message,[m
+[32m+[m[32m            Foreground = errorColor,[m
+[32m+[m[32m            Background = c[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new LineBreak());[m
+[32m+[m
+[32m+[m[32m        logScroller.ScrollToEnd();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    void clearLog()[m
+[32m+[m[32m    {[m
+[32m+[m[32m        alternateLogLineColor = false;[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Clear();[m
+[32m+[m
+[32m+[m[32m        logScroller.ScrollToEnd();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    void issueNormalMessage(string message)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        alternateLogLineBackgroundColor();[m
+[32m+[m
+[32m+[m[32m        var c = textBackgroundColor[Convert.ToInt32(alternateLogLineColor)];[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new Run[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Text = message,[m
+[32m+[m[32m            Foreground = textGenericColor,[m
+[32m+[m[32m            Background = c[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new LineBreak());[m
+[32m+[m
+[32m+[m[32m        logScroller.ScrollToEnd();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    void issueSuccessMessage(string message)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        alternateLogLineBackgroundColor();[m
+[32m+[m
+[32m+[m[32m        var c = textBackgroundColor[Convert.ToInt32(alternateLogLineColor)];[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new Run[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Text = message,[m
+[32m+[m[32m            Foreground = successColor,[m
+[32m+[m[32m            Background = c[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        log.Inlines.Add(new LineBreak());[m
+[32m+[m
+[32m+[m[32m        logScroller.ScrollToEnd();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    void alternateLogLineBackgroundColor() { alternateLogLineColor = !alternateLogLineColor; }[m
+[32m+[m[32m    void alternateGridLineBackgroundColor() { alternateGridLineColor = !alternateGridLineColor; }[m
+[32m+[m[32m    void alternateFileLineBackgroundColor() { alternateFileLineColor = !alternateFileLineColor; }[m
+[32m+[m[32m    void alternateFolderLineBackgroundColor() { alternateFolderLineColor = !alternateFolderLineColor; }[m
+[32m+[m
+[32m+[m[32m    private void addParameterPairButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        string? parameterKey = parameterKeys.Text;[m
+[32m+[m[32m        string? parameterValue = parameterValues.Text;[m
+[32m+[m
+[32m+[m[32m        //check if parameter key is provided[m
+[32m+[m[32m        if (parameterKey == null || parameterKey.Length < 1)[m[41m [m
+[32m+[m[32m        {[m
+[32m+[m[32m            issueErrorMessage_NoExc(ErrMsgs.NOPARAM);[m
+[32m+[m[32m            clearParameterFields();[m
+[32m+[m[32m            return;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        parameterKey = parameterKey.ToLower();[m
+[32m+[m
+[32m+[m[32m        //check if parameter key is valid[m
+[32m+[m[32m        if (!validparams.Contains(parameterKey))[m
+[32m+[m[32m        {[m
+[32m+[m[32m            issueErrorMessage_NoExc(ErrMsgs.INVALIDPARAM + $" Parameter: {parameterKey}");[m
+[32m+[m[32m            clearParameterFields();[m
+[32m+[m[32m            return;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        //check if parameter value is provided[m
+[32m+[m[32m        if (parameterValue == null || parameterValue.Length < 1)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            issueErrorMessage_NoExc(ErrMsgs.NOPARAMVAL + $" Parameter: {parameterKey}");[m
+[32m+[m[32m            clearParameterFields();[m
+[32m+[m[32m            return;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        //check if parameter already exists[m
+[32m+[m[32m        try[m
+[32m+[m[32m        {[m
+[32m+[m[32m            parametersList.Add(parameterKey, parameterValue);[m
+[32m+[m[32m        }[m
+[32m+[m[32m        catch (Exception err)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            issueErrorMessage(ErrMsgs.DUPLICATEPARAM, err);[m
+[32m+[m[32m            clearParameterFields();[m
+[32m+[m[32m            return;[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        issueSuccessMessage($"Successfully added parameter '{parameterKey} with value' '{parameterValue}' to the parameter list!");[m
+[32m+[m
+[32m+[m[32m        addParameterToUIGrid(parameterKey, parameterValue);[m
+[32m+[m
+[32m+[m[32m        clearParameterFields();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private void addFolderButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        string? s = folders.Text;[m
+[32m+[m
+[32m+[m[32m        if (dirExists(s))[m
+[32m+[m[32m        {[m
+[32m+[m[32m            if (dirList.Contains(s))[m
+[32m+[m[32m            {[m
+[32m+[m[32m                issueErrorMessage_NoExc(ErrMsgs.DUPLICATEFOLDER + $" Folder: {s}");[m
+[32m+[m[32m                folders.Text = "";[m
+[32m+[m[32m                return;[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m            dirList.Add(s);[m
+[32m+[m
+[32m+[m[32m            addFolderToUI(s);[m
+[32m+[m
+[32m+[m[32m            issueSuccessMessage($"Successfully added {s} to the folder list!");[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        folders.Text = "";[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private void addFileButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        string? s = files.Text;[m
+[32m+[m
+[32m+[m[32m        if (fileExists(s))[m
+[32m+[m[32m        {[m
+[32m+[m[32m            if (fileList.Contains(s))[m
+[32m+[m[32m            {[m
+[32m+[m[32m                issueErrorMessage_NoExc(ErrMsgs.DUPLICATEFILE + $" File: {s}");[m
+[32m+[m[32m                files.Text = "";[m
+[32m+[m[32m                return;[m
+[32m+[m[32m            }[m
+[32m+[m
+[32m+[m[32m            fileList.Add(s);[m
+[32m+[m
+[32m+[m[32m            addFileToUI(s);[m
+[32m+[m[41m            [m
+[32m+[m[32m            issueSuccessMessage($"Successfully added {s} to the file list!");[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        files.Text = "";[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private void clearParameterFields()[m
+[32m+[m[32m    {[m[41m [m
+[32m+[m[32m        parameterKeys.Clear();[m
+[32m+[m[32m        parameterValues.Clear();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private void addParameterToUIGrid(string k, string v)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        alternateGridLineBackgroundColor();[m
+[32m+[m
+[32m+[m[32m        var c = textBackgroundColor[Convert.ToInt32(alternateGridLineColor)];[m
+[32m+[m
+[32m+[m[32m        gridParameterKeys.Inlines.Add(new Run[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Text = k + "    ",[m
+[32m+[m[32m            Foreground = textGenericColor,[m
+[32m+[m[32m            Background = c[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        gridParameterValues.Inlines.Add(new Run[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Text = v,[m
+[32m+[m[32m            Foreground = textGenericColor,[m
+[32m+[m[32m            Background = c[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        gridParameterKeys.Inlines.Add(new LineBreak());[m
+[32m+[m[32m        gridParameterValues.Inlines.Add(new LineBreak());[m
+[32m+[m
+[32m+[m[32m        parameterScroller.ScrollToEnd();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private void addFileToUI(string file)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        alternateFileLineBackgroundColor();[m
+[32m+[m
+[32m+[m[32m        var c = textBackgroundColor[Convert.ToInt32(alternateFileLineColor)];[m
+[32m+[m
+[32m+[m[32m        currentFiles.Inlines.Add(new Run[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Text = file,[m
+[32m+[m[32m            Foreground = textGenericColor,[m
+[32m+[m[32m            Background = c[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        currentFiles.Inlines.Add(new LineBreak());[m
+[32m+[m
+[32m+[m[32m        fileScroller.ScrollToEnd();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private void addFolderToUI(string folder)[m
+[32m+[m[32m    {[m
+[32m+[m[32m        alternateFolderLineBackgroundColor();[m
+[32m+[m
+[32m+[m[32m        var c = textBackgroundColor[Convert.ToInt32(alternateFolderLineColor)];[m
+[32m+[m
+[32m+[m[32m        currentFolders.Inlines.Add(new Run[m
+[32m+[m[32m        {[m
+[32m+[m[32m            Text = folder,[m
+[32m+[m[32m            Foreground = textGenericColor,[m
+[32m+[m[32m            Background = c[m
+[32m+[m[32m        });[m
+[32m+[m
+[32m+[m[32m        currentFolders.Inlines.Add(new LineBreak());[m
+[32m+[m
+[32m+[m[32m        folderScroller.ScrollToEnd();[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private void redrawFilesToUI()[m
+[32m+[m[32m    {[m
+[32m+[m[32m        currentFiles.Text = "";[m
+[32m+[m[32m        currentFiles.Inlines.Clear();[m
+[32m+[m
+[32m+[m[32m        foreach (var item in fileList)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            addFileToUI(item);[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private void redrawFoldersToUI()[m
+[32m+[m[32m    {[m
+[32m+[m[32m        currentFolders.Text = "";[m
+[32m+[m[32m        currentFolders.Inlines.Clear();[m
+[32m+[m
+[32m+[m[32m        foreach (var item in dirList)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            addFolderToUI(item);[m
+[32m+[m[32m        }[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    private void redrawParametersToUI()[m
+[32m+[m[32m    {[m
+[32m+[m[32m        gridParameterKeys.Text = "";[m
+[32m+[m[32m        gridParameterValues.Text = "";[m
+[32m+[m
+[32m+[m[32m        gridParameterKeys.Inlines.Clear();[m
+[32m+[m[32m        gridParameterValues.Inlines.Clear();[m
+[32m+[m
+[32m+[m[32m        foreach (DictionaryEntry item in parametersList)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            addParameterToUIGrid(item.Key.ToString(), item.Value.ToString());[m
+[32m+[m[32m        }[m
+     }[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/Views/MainWindow.axaml b/Views/MainWindow.axaml[m
+[1mindex 004af67..a0fd612 100644[m
+[1m--- a/Views/MainWindow.axaml[m
+[1m+++ b/Views/MainWindow.axaml[m
+[36m@@ -21,31 +21,31 @@[m
+         <DockPanel Margin="10">[m
+             <Menu DockPanel.Dock="Top">[m
+ [m
+[31m-              <MenuItem Header="Amend" ToolTip.Tip="Contains functions that alter any particular file's contents.">[m
+[31m-                <MenuItem Header="Linear" ToolTip.Tip="Amend all files in one or more directories." Click="run_AmendLinear"/>[m
+[31m-                <MenuItem Header="Recursive" ToolTip.Tip="Amend all files in a directory recursively."/>[m
+[31m-                <MenuItem Header="Crude-edit" ToolTip.Tip="Crudely edits specific lines of all files in a directory, as specified by the user. WARNING: misuse of this function can lead to mass-corruption of files. Verify the desired changes carefully!"/>[m
+[31m-                <MenuItem Header="Fixer" ToolTip.Tip="Fixes all .vmt files in a directory."/>[m
+[32m+[m[32m              <MenuItem Header="Amend"          ToolTip.Tip="Contains functions that alter any particular file's contents.">[m
+[32m+[m[32m                <MenuItem Header="Linear"       Click="run_Amend_Linear"        ToolTip.Tip="Amend all files in one or more directories."/>[m
+[32m+[m[32m                <MenuItem Header="Recursive"    Click="run_Amend_Recursive"     ToolTip.Tip="Amend all files in a directory recursively."/>[m
+[32m+[m[32m                <MenuItem Header="Crude-edit"   Click="run_Amend_Crude"         ToolTip.Tip="Crudely edits specific lines of all files in a directory, as specified by the user. WARNING: misuse of this function can lead to mass-corruption of files. Verify the desired changes carefully!"/>[m
+[32m+[m[32m                <MenuItem Header="Fixer"        Click="run_Amend_Fixer"         ToolTip.Tip="Fixes all .vmt files in a directory."/>[m
+               </MenuItem>[m
+ [m
+[31m-              <MenuItem Header="Copy" ToolTip.Tip="Contains functions that copy files in one way or another.">[m
+[31m-                <MenuItem Header="Linear" ToolTip.Tip="Copy all files from one or more directories to one or more directories."/>[m
+[31m-                <MenuItem Header="Recursive" ToolTip.Tip="Copy all compatible files in a directory recursively to one or more directories."/>[m
+[31m-                <MenuItem Header="EBMPC" ToolTip.Tip="Example-Based Mass-Parameterised Copy - Will copy one file into multiple target directories and within each directory, get the first matching example and inject it with the found parameters as specified by the user."/>[m
+[32m+[m[32m              <MenuItem Header="Copy"           ToolTip.Tip="Contains functions that copy files in one way or another.">[m
+[32m+[m[32m                <MenuItem Header="Linear"       Click="run_Copy_Linear"     ToolTip.Tip="Copy all files from one or more directories to one or more directories."/>[m
+[32m+[m[32m                <MenuItem Header="Recursive"    Click="run_Copy_Recursive"  ToolTip.Tip="Copy all compatible files in a directory recursively to one or more directories."/>[m
+[32m+[m[32m                <MenuItem Header="EBMPC"        Click="run_Copy_EBMPC"      ToolTip.Tip="Example-Based Mass-Parameterised Copy - Will copy one file into multiple target directories and within each directory, get the first matching example and inject it with the found parameters as specified by the user."/>[m
+               </MenuItem>[m
+ [m
+               <MenuItem Header="Move" ToolTip.Tip="Contains functions that move files from one place to another.">[m
+[31m-                <MenuItem Header="Linear" ToolTip.Tip="Moves all files from one or more directories to a single target directory."/>[m
+[32m+[m[32m                <MenuItem Header="Linear" Click="run_Move_Linear"   ToolTip.Tip="Moves all files from one or more directories to a single target directory."/>[m
+               </MenuItem>[m
+ [m
+               <MenuItem Header="Add parameters" ToolTip.Tip="Contains functions that simply add parameters to a file - Note: these will NOT overwrite existing parameters.">[m
+[31m-                <MenuItem Header="Singular" ToolTip.Tip="Add parameters to one file from a specified full path."/>[m
+[31m-                <MenuItem Header="Linear" ToolTip.Tip="Add parameters to all files from one directory."/>[m
+[31m-                <MenuItem Header="Multiple" ToolTip.Tip="Add parameters to all files from one or more directories."/>[m
+[32m+[m[32m                <MenuItem Header="Singular" Click="run_AddParameters_Singular"  ToolTip.Tip="Add parameters to one file from a specified full path."/>[m
+[32m+[m[32m                <MenuItem Header="Linear"   Click="run_AddParameters_Linear"    ToolTip.Tip="Add parameters to all files from one directory."/>[m
+[32m+[m[32m                <MenuItem Header="Multiple" Click="run_AddParameters_Multiple"  ToolTip.Tip="Add parameters to all files from one or more directories."/>[m
+               </MenuItem>[m
+ [m
+               <MenuItem Header="Create" ToolTip.Tip="Functions that relate to the creation of files from scratch. Useful for creating skeleton structures.">[m
+[31m-                <MenuItem Header="Paired Base - .vmt" ToolTip.Tip="Will create a .vmt file for each .vtf file in a specified directory by using a specified base .vmt file"/>[m
+[32m+[m[32m                <MenuItem Header="Paired Base - .vmt" Click="run_Create_PairedBase" ToolTip.Tip="Will create a .vmt file for each .vtf file in a specified directory by using a specified base .vmt file"/>[m
+               </MenuItem>[m
+ [m
+               <MenuItem Header="Settings" ToolTip.Tip="Review the program's settings."></MenuItem>[m
+[1mdiff --git a/Views/MainWindow.axaml.cs b/Views/MainWindow.axaml.cs[m
+[1mindex 0ca2676..53df82d 100644[m
+[1m--- a/Views/MainWindow.axaml.cs[m
+[1m+++ b/Views/MainWindow.axaml.cs[m
+[36m@@ -5,6 +5,26 @@[m [musing System.Diagnostics;[m
+ [m
+ namespace VaMME.Views[m
+ {[m
+[32m+[m[32m    public enum EngineOperations[m
+[32m+[m[32m    {[m
+[32m+[m[32m            AmendLinear = 1,[m
+[32m+[m[32m            AmendRecursive = 2,[m
+[32m+[m[32m            AmendCrude = 3,[m
+[32m+[m[32m            AmendFixer = 4,[m
+[32m+[m
+[32m+[m[32m            CopyLinear = 5,[m
+[32m+[m[32m            CopyRecursive = 6,[m
+[32m+[m[32m            CopyEMBPC = 7,[m
+[32m+[m
+[32m+[m[32m            MoveLinear = 8,[m
+[32m+[m
+[32m+[m[32m            AddParametersSingular = 9,[m
+[32m+[m[32m            AddParametersLinear = 10,[m
+[32m+[m[32m            AddParametersMultiple = 11,[m
+[32m+[m
+[32m+[m[32m            CreatePairedBase = 12[m
+[32m+[m[32m    }[m
+[32m+[m
+     public partial class MainWindow : Window[m
+     {[m
+         public object CurrentView { get; set; }[m
+[36m@@ -32,14 +52,17 @@[m [mnamespace VaMME.Views[m
+         private void runEngine(int taskID)[m
+         {[m
+             var engineWindow = new Engine(taskID);[m
+[32m+[m
+[32m+[m[32m            engineWindow.Closed += (_, _) => this.Show();[m
+[32m+[m
+             engineWindow.Show();[m
+ [m
+             this.Hide();[m
+         }[m
+ [m
+[31m-        private void run_AmendLinear(object? sender, Avalonia.Interactivity.RoutedEventArgs e)[m
+[32m+[m[32m        private void EngineWindow_Closed(object? sender, EventArgs e)[m
+         {[m
+[31m-            runEngine(1);[m
+[32m+[m[32m            throw new NotImplementedException();[m
+         }[m
+ [m
+         private void exitProgram(object? sender, Avalonia.Interactivity.RoutedEventArgs e)[m
+[36m@@ -47,5 +70,65 @@[m [mnamespace VaMME.Views[m
+             Close();[m
+             Environment.Exit(0);[m
+         }[m
+[32m+[m
+[32m+[m[32m        private void run_Amend_Linear(object? sender, Avalonia.Interactivity.RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.AmendLinear);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void run_Amend_Recursive(object? sender, RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.AmendRecursive);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void run_Amend_Crude(object? sender, RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.AmendCrude);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void run_Amend_Fixer(object? sender, RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.AmendFixer);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void run_Copy_Linear(object? sender, RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.CopyLinear);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void run_Copy_Recursive(object? sender, RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.CopyRecursive);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void run_Copy_EBMPC(object? sender, RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.CopyEMBPC);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void run_Move_Linear(object? sender, RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.MoveLinear);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void run_AddParameters_Singular(object? sender, RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.AddParametersSingular);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void run_AddParameters_Linear(object? sender, RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.AddParametersLinear);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void run_AddParameters_Multiple(object? sender, RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.AddParametersMultiple);[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m        private void run_Create_PairedBase(object? sender, RoutedEventArgs e)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            runEngine((int)EngineOperations.CreatePairedBase);[m
+[32m+[m[32m        }[m
+     }[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/bin/Debug/net8.0/VaMME.dll b/bin/Debug/net8.0/VaMME.dll[m
+[1mindex b5a35d7..5799224 100644[m
+Binary files a/bin/Debug/net8.0/VaMME.dll and b/bin/Debug/net8.0/VaMME.dll differ
+[1mdiff --git a/bin/Debug/net8.0/VaMME.exe b/bin/Debug/net8.0/VaMME.exe[m
+[1mindex f1f6045..71496c4 100644[m
+Binary files a/bin/Debug/net8.0/VaMME.exe and b/bin/Debug/net8.0/VaMME.exe differ
+[1mdiff --git a/bin/Debug/net8.0/VaMME.pdb b/bin/Debug/net8.0/VaMME.pdb[m
+[1mindex 0c7b163..1d9a021 100644[m
+Binary files a/bin/Debug/net8.0/VaMME.pdb and b/bin/Debug/net8.0/VaMME.pdb differ
+[1mdiff --git a/obj/Debug/net8.0/Avalonia/resources b/obj/Debug/net8.0/Avalonia/resources[m
+[1mindex cf7c2e2..a8daac5 100644[m
+Binary files a/obj/Debug/net8.0/Avalonia/resources and b/obj/Debug/net8.0/Avalonia/resources differ
+[1mdiff --git a/obj/Debug/net8.0/VaMME.AssemblyInfo.cs b/obj/Debug/net8.0/VaMME.AssemblyInfo.cs[m
+[1mindex 92bff9b..ff775d3 100644[m
+[1m--- a/obj/Debug/net8.0/VaMME.AssemblyInfo.cs[m
+[1m+++ b/obj/Debug/net8.0/VaMME.AssemblyInfo.cs[m
+[36m@@ -14,7 +14,7 @@[m [musing System.Reflection;[m
+ [assembly: System.Reflection.AssemblyCompanyAttribute("VaMME")][m
+ [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")][m
+ [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")][m
+[31m-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")][m
+[32m+[m[32m[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86bf2f040c2a51dd5fa4978a5d828ba0072e647b")][m
+ [assembly: System.Reflection.AssemblyProductAttribute("VaMME")][m
+ [assembly: System.Reflection.AssemblyTitleAttribute("VaMME")][m
+ [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")][m
+[1mdiff --git a/obj/Debug/net8.0/VaMME.AssemblyInfoInputs.cache b/obj/Debug/net8.0/VaMME.AssemblyInfoInputs.cache[m
+[1mindex e7ab55f..1556a5d 100644[m
+[1m--- a/obj/Debug/net8.0/VaMME.AssemblyInfoInputs.cache[m
+[1m+++ b/obj/Debug/net8.0/VaMME.AssemblyInfoInputs.cache[m
+[36m@@ -1 +1 @@[m
+[31m-39de46e5d011cde744064ab9b59b806a137e584f8f651823e934587eb640294c[m
+[32m+[m[32m1fe176673ef9d1b969ecd1ec24bfa5ee34d093377f24dbd6a63a025fe987050f[m
+[1mdiff --git a/obj/Debug/net8.0/VaMME.csproj.FileListAbsolute.txt b/obj/Debug/net8.0/VaMME.csproj.FileListAbsolute.txt[m
+[1mindex f328d45..12f267f 100644[m
+[1m--- a/obj/Debug/net8.0/VaMME.csproj.FileListAbsolute.txt[m
+[1m+++ b/obj/Debug/net8.0/VaMME.csproj.FileListAbsolute.txt[m
+[36m@@ -73,3 +73,4 @@[m [mC:\Users\blood\Desktop\SysWOW33\myscripts\VaMME\VaMME\obj\Debug\net8.0\refint\Va[m
+ C:\Users\blood\Desktop\SysWOW33\myscripts\VaMME\VaMME\obj\Debug\net8.0\VaMME.pdb[m
+ C:\Users\blood\Desktop\SysWOW33\myscripts\VaMME\VaMME\obj\Debug\net8.0\VaMME.genruntimeconfig.cache[m
+ C:\Users\blood\Desktop\SysWOW33\myscripts\VaMME\VaMME\obj\Debug\net8.0\ref\VaMME.dll[m
+[32m+[m[32mC:\Users\blood\Desktop\SysWOW33\myscripts\VaMME\VaMME\obj\Debug\net8.0\VaMME.sourcelink.json[m
+[1mdiff --git a/obj/Debug/net8.0/VaMME.dll b/obj/Debug/net8.0/VaMME.dll[m
+[1mindex b5a35d7..5799224 100644[m
+Binary files a/obj/Debug/net8.0/VaMME.dll and b/obj/Debug/net8.0/VaMME.dll differ
+[1mdiff --git a/obj/Debug/net8.0/VaMME.pdb b/obj/Debug/net8.0/VaMME.pdb[m
+[1mindex 0c7b163..1d9a021 100644[m
+Binary files a/obj/Debug/net8.0/VaMME.pdb and b/obj/Debug/net8.0/VaMME.pdb differ
+[1mdiff --git a/obj/Debug/net8.0/apphost.exe b/obj/Debug/net8.0/apphost.exe[m
+[1mindex f1f6045..71496c4 100644[m
+Binary files a/obj/Debug/net8.0/apphost.exe and b/obj/Debug/net8.0/apphost.exe differ
+[1mdiff --git a/obj/Debug/net8.0/ref/VaMME.dll b/obj/Debug/net8.0/ref/VaMME.dll[m
+[1mindex 45abe15..e42d873 100644[m
+Binary files a/obj/Debug/net8.0/ref/VaMME.dll and b/obj/Debug/net8.0/ref/VaMME.dll differ
+[1mdiff --git a/obj/Debug/net8.0/refint/VaMME.dll b/obj/Debug/net8.0/refint/VaMME.dll[m
+[1mindex 45abe15..e42d873 100644[m
+Binary files a/obj/Debug/net8.0/refint/VaMME.dll and b/obj/Debug/net8.0/refint/VaMME.dll differ

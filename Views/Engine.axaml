@@ -4,11 +4,166 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="VaMME.Engine"
-        Title="VaMME">
+        Title="VaMME - Valve Mass Material Editor - Engine"
+        Icon="/Assets/VaMME.ico">
 
     <StackPanel Margin="10" Spacing="8">
 
-        <MenuItem Header="Abort task." ToolTip.Tip="WARNING! Clicking this button will abort any and all tasks currently in progress!" Click="AbortTask"></MenuItem>
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <TextBox 
+                IsEnabled="True"   
+                Name="files"            
+                ToolTip.Tip="Here you should enter the complete file path of your file: an example would be 'C:\myFolder\my other folder\myFile.vmt'. Duplicate files are not allowed. Entering a directory here instead will take all files available in this directory, including subdirectories recursively." 
+                Watermark=" Enter your files here." 
+                KeyDown="files_KeyDown">
+            </TextBox>
+            
+            <Button  
+                IsEnabled="True"   
+                Name="addFileButton"    
+                ToolTip.Tip="Clicking this button will add your desired file to the list of files. Invalid, duplicate or nonexisting files will not be accepted." 
+                Content="Add File..." 
+                Click="addFileButton_Click" 
+                Grid.Column="1">
+            </Button>
+        </Grid>
+
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <TextBox 
+                IsEnabled="True"   
+                Name="folders"         
+                ToolTip.Tip="Here you should enter the complete file path of your folder: an example would be 'C:\myFolder\my other folder\'. Duplicate folders are not allowed."   
+                Watermark="Enter your folders here."     
+                KeyDown="folders_KeyDown">
+            </TextBox>
+            
+            <Button  
+                IsEnabled="True"   
+                Name="addFolderButton" 
+                ToolTip.Tip="Clicking this button will add your desired folder to the list of folders. Invalid, duplicate or nonexisting folders will not be accepted."   
+                Content="Add Folder..." 
+                Click="addFolderButton_Click" 
+                Grid.Column="1">
+            </Button>
+        </Grid>
+
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <TextBox    
+                KeyDown="parameterPair_KeyDown" 
+                IsEnabled="True"   
+                Name="parameterKeys"   
+                ToolTip.Tip="Here you should enter your parameter keys, one at a time. An example input would be '$basetexture'. Invalid or duplicate parameters are not accepted. All parameters must start with '$'. Each parameter must be accompanied by a value, which must be entered in the field below this one."   
+                Watermark="Enter your parameter keys here.">
+            </TextBox>
+        </Grid>
+
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <TextBox    
+                KeyDown="parameterPair_KeyDown" 
+                IsEnabled="True"    
+                Name="parameterValues"          
+                ToolTip.Tip="Here you should enter your parameter values, one at a time. An example input would be 'myFolder/my other folder/myTextureFile.vtf', or '{0 0 0}', etc., depending on what parameter key is being provided. Duplicate parameter values are accepted. Parameter values can be anything, please verify before submitting. Each parameter value must be accompanied by a key, which must be entered in the field above this one." 
+                Watermark="Enter your parameter values here.">
+            </TextBox>
+
+            <Button     
+                IsEnabled="True"    
+                Name="addParameterPairButton"   
+                ToolTip.Tip="Clicking this button will add your desired parameter to the list of parameters. Invalid, duplicate or nonexisting parameters will not be accepted. Parameter keys with no value or parameter values with no keys are also not accepted. " 
+                Content="Add Parameter..." 
+                Click="addParameterPairButton_Click" 
+                Grid.Column="1">
+            </Button>
+        </Grid>
+
+        <TextBlock Text="Files to be affected: "></TextBlock>
+
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <Border 
+                BorderBrush="Gray"
+                BorderThickness="2"
+                Padding="4"
+                Margin="4"
+                >         
+                <ScrollViewer Name="fileScroller" MaxHeight="100" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <SelectableTextBlock Name="currentFiles" FontFamily="Consolas"/>
+                </ScrollViewer>
+            </Border>
+
+            <Button Grid.Column="1" Content="Remove last..." ToolTip.Tip="WARNING! Clicking this button will remove the last added file from the list. Holding Ctrl when pressing this button will remove ALL files!" Click="removeFile"></Button>
+        </Grid>
+
+        <TextBlock Text="Folders to be affected: "></TextBlock>
+
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <Border 
+                BorderBrush="Gray"
+                BorderThickness="2"
+                Padding="4"
+                Margin="4"
+                >
+                <ScrollViewer Name="folderScroller" MaxHeight="100" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <SelectableTextBlock Name="currentFolders" FontFamily="Consolas"/>
+                </ScrollViewer>
+            </Border>
+
+            <Button Grid.Column="1" Content="Remove last..." ToolTip.Tip="WARNING! Clicking this button will remove the last added folder from the list. Holding Ctrl when pressing this button will remove ALL folders!" Click="removeFolder"></Button>
+        </Grid>
+
+        <TextBlock Text="Parameters to be written: "></TextBlock>
+
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <Border 
+                BorderBrush="Gray"
+                BorderThickness="2"
+                Padding="4"
+                Margin="4"
+                >
+                <ScrollViewer Name="parameterScroller" MaxHeight="200" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <SelectableTextBlock    Name="gridParameterKeys"></SelectableTextBlock>
+                        <SelectableTextBlock    Name="gridParameterValues" Grid.Column="1"></SelectableTextBlock>
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+
+            <Button 
+                Grid.Column="1" 
+                Content="Remove last..." 
+                ToolTip.Tip="WARNING! Clicking this button will remove the last added pair of parameters from the list. Holding Ctrl when pressing this button will remove ALL parameters!" 
+                Click="removeParameter">
+            </Button>
+        </Grid>
+
+        <TextBlock Text="Log: "></TextBlock>
+
+        <Border BorderBrush="Gray"
+            BorderThickness="2"
+            Padding="4"
+            Margin="4">
+
+            <ScrollViewer Name="logScroller" MaxHeight="200" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <SelectableTextBlock Name="log" FontFamily="Consolas" FontWeight="Bold"/>
+            </ScrollViewer>
+
+        </Border>
+
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+            <Button 
+                Content="Exit task."    
+                ToolTip.Tip="WARNING! Clicking this button will abort any and all tasks currently in progress, as well as erasing all provided inputs!" 
+                Click="AbortTask" 
+                Foreground="OrangeRed">
+            </Button>
+            
+            <Button 
+                Content="Execute task." 
+                ToolTip.Tip="WARNING! Clicking this button will initiate the current task with the currently-provided target files/folders and/or parameters. Ensure that you are happy with the provided details before proceeding!" 
+                Click="StartTask" 
+                Foreground="Lime" 
+                Grid.Column="1">
+            </Button>
+        </Grid>
     </StackPanel>
 
 </Window>
