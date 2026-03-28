@@ -65,8 +65,7 @@
               "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml",
               "RelativeToolTip": "Views\\Engine.axaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-09T18:18:02.318Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T18:18:02.318Z"
             },
             {
               "$type": "Document",
@@ -78,8 +77,7 @@
               "RelativeToolTip": "Views\\Engine.axaml.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAQwBIAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T18:18:02.251Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T18:18:02.251Z"
             },
             {
               "$type": "Document",
@@ -102,8 +100,7 @@
               "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml",
               "RelativeToolTip": "Views\\MainWindow.axaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-02-03T15:50:32.689Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T15:50:32.689Z"
             },
             {
               "$type": "Document",
@@ -115,8 +112,7 @@
               "RelativeToolTip": "Views\\MainWindow.axaml.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAAwFAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T18:15:01.233Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-21T18:15:01.233Z"
             },
             {
               "$type": "Document",
@@ -140,8 +136,7 @@
               "RelativeToolTip": "Views\\helpWindow.axaml.cs",
               "ViewState": "AgIAAE8AAAAAAAAAAAAcwFwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T18:07:05.273Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-09T18:07:05.273Z"
             }
           ]
         }
