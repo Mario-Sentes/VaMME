@@ -24,5 +24,11 @@ build_property.EnableCodeStyleSeverity =
 [C:/Users/blood/Desktop/SysWOW33/myscripts/VaMME/VaMME/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/blood/Desktop/SysWOW33/myscripts/VaMME/VaMME/Views/Engine.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/blood/Desktop/SysWOW33/myscripts/VaMME/VaMME/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/blood/Desktop/SysWOW33/myscripts/VaMME/VaMME/Views/testwindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

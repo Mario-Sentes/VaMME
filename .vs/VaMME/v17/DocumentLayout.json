@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\helpwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\helpwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\helpwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\helpwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\engine.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\engine.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,24 +27,12 @@
       "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\engine.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:viewmodels\\mainwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\testwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\testwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|c:\\users\\blood\\desktop\\syswow33\\myscripts\\vamme\\vamme\\views\\testwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C62716C5-BF23-4430-87DA-366243DFB506}|VaMME.csproj|solutionrelative:views\\testwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "App.axaml.cs",
               "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\App.axaml.cs",
               "RelativeDocumentMoniker": "App.axaml.cs",
@@ -54,12 +54,11 @@
               "RelativeToolTip": "App.axaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T13:05:44.295Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-23T13:05:44.295Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Engine.axaml",
               "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml",
               "RelativeDocumentMoniker": "Views\\Engine.axaml",
@@ -71,20 +70,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Engine.axaml.cs",
               "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml.cs",
               "RelativeDocumentMoniker": "Views\\Engine.axaml.cs",
               "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\Engine.axaml.cs",
               "RelativeToolTip": "Views\\Engine.axaml.cs",
-              "ViewState": "AgIAADQBAAAAAAAAAAAhwEwBAAANAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwBIAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-09T18:18:02.251Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "MainWindowViewModel.cs",
               "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\ViewModels\\MainWindowViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\MainWindowViewModel.cs",
@@ -92,12 +91,11 @@
               "RelativeToolTip": "ViewModels\\MainWindowViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-21T18:26:53.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-21T18:26:53.58Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "MainWindow.axaml",
               "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml",
               "RelativeDocumentMoniker": "Views\\MainWindow.axaml",
@@ -109,39 +107,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "MainWindow.axaml.cs",
               "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml.cs",
               "RelativeDocumentMoniker": "Views\\MainWindow.axaml.cs",
               "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\MainWindow.axaml.cs",
               "RelativeToolTip": "Views\\MainWindow.axaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAAwFAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-21T18:15:01.233Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "testwindow.axaml.cs",
-              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml.cs",
-              "RelativeDocumentMoniker": "Views\\testwindow.axaml.cs",
-              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml.cs",
-              "RelativeToolTip": "Views\\testwindow.axaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-09T18:07:05.273Z"
+              "DocumentIndex": 0,
+              "Title": "HelpWindow.axaml",
+              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\HelpWindow.axaml",
+              "RelativeDocumentMoniker": "Views\\HelpWindow.axaml",
+              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\HelpWindow.axaml",
+              "RelativeToolTip": "Views\\HelpWindow.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-09T18:07:05.4Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "testwindow.axaml",
-              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml",
-              "RelativeDocumentMoniker": "Views\\testwindow.axaml",
-              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\testwindow.axaml",
-              "RelativeToolTip": "Views\\testwindow.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-09T18:07:05.4Z"
+              "DocumentIndex": 1,
+              "Title": "helpWindow.axaml.cs",
+              "DocumentMoniker": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\helpWindow.axaml.cs",
+              "RelativeDocumentMoniker": "Views\\helpWindow.axaml.cs",
+              "ToolTip": "C:\\Users\\blood\\Desktop\\SysWOW33\\myscripts\\VaMME\\VaMME\\Views\\helpWindow.axaml.cs",
+              "RelativeToolTip": "Views\\helpWindow.axaml.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAcwFwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-09T18:07:05.273Z",
+              "EditorCaption": ""
             }
           ]
         }

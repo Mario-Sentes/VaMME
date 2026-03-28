@@ -12,7 +12,6 @@ namespace VaMME.Views
             AmendRecursive = 2,
             AmendFixer = 3,
 
-            CopyLinear = 4,
             CopyRecursive = 5,
             CopyEMBPC = 6,
 
@@ -22,7 +21,8 @@ namespace VaMME.Views
             AddParametersLinear = 9,
             AddParametersMultiple = 10,
 
-            CreatePairedBase = 11
+            CreatePairedBase = 11,
+            CreatePairedBaseDetail = 12
     }
     public partial class MainWindow : Window
     {
@@ -31,24 +31,20 @@ namespace VaMME.Views
         public MainWindow()
         {
             InitializeComponent();
-
-            main();
         }
 
-        public void main()
+        private void helpWindow(object? sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("Entered main");
-        }
+            var helpWindow = new HelpWindow();
 
-        private void testWindow(object? sender, RoutedEventArgs e)
-        {
-            var testWindow = new testwindow();
-            testWindow.Show();
+            helpWindow.Closed += (_, _) => this.Show();
+
+            helpWindow.Show();
 
             this.Hide();
         }
 
-        private void runEngine(int taskID)
+        private void runEngine(EngineOperations taskID)
         {
             var engineWindow = new Engine(taskID);
 
@@ -72,56 +68,56 @@ namespace VaMME.Views
 
         private void run_Amend_Linear(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            runEngine((int)EngineOperations.AmendLinear);
+            runEngine(EngineOperations.AmendLinear);
         }
 
         private void run_Amend_Recursive(object? sender, RoutedEventArgs e)
         {
-            runEngine((int)EngineOperations.AmendRecursive);
+            runEngine(EngineOperations.AmendRecursive);
         }
         private void run_Amend_Fixer(object? sender, RoutedEventArgs e)
         {
-            runEngine((int)EngineOperations.AmendFixer);
-        }
-
-        private void run_Copy_Linear(object? sender, RoutedEventArgs e)
-        {
-            runEngine((int)EngineOperations.CopyLinear);
+            runEngine(EngineOperations.AmendFixer);
         }
 
         private void run_Copy_Recursive(object? sender, RoutedEventArgs e)
         {
-            runEngine((int)EngineOperations.CopyRecursive);
+            runEngine(EngineOperations.CopyRecursive);
         }
 
         private void run_Copy_EBMPC(object? sender, RoutedEventArgs e)
         {
-            runEngine((int)EngineOperations.CopyEMBPC);
+            runEngine(EngineOperations.CopyEMBPC);
         }
 
         private void run_Move_Linear(object? sender, RoutedEventArgs e)
         {
-            runEngine((int)EngineOperations.MoveLinear);
+            runEngine(EngineOperations.MoveLinear);
         }
 
         private void run_AddParameters_Singular(object? sender, RoutedEventArgs e)
         {
-            runEngine((int)EngineOperations.AddParametersSingular);
+            runEngine(EngineOperations.AddParametersSingular);
         }
 
         private void run_AddParameters_Linear(object? sender, RoutedEventArgs e)
         {
-            runEngine((int)EngineOperations.AddParametersLinear);
+            runEngine(EngineOperations.AddParametersLinear);
         }
 
         private void run_AddParameters_Multiple(object? sender, RoutedEventArgs e)
         {
-            runEngine((int)EngineOperations.AddParametersMultiple);
+            runEngine(EngineOperations.AddParametersMultiple);
         }
 
         private void run_Create_PairedBase(object? sender, RoutedEventArgs e)
         {
-            runEngine((int)EngineOperations.CreatePairedBase);
+            runEngine(EngineOperations.CreatePairedBase);
+        }
+
+        private void run_Create_PairedBaseDetail(object? sender, RoutedEventArgs e)
+        {
+            runEngine(EngineOperations.CreatePairedBaseDetail);
         }
     }
 }

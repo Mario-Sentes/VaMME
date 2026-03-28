@@ -1,0 +1,38 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="VaMME.HelpWindow"
+        Title="VaMME - Valve Mass Material Editor - Help">
+
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" MaxWidth="{Binding Bounds.Width, RelativeSource={RelativeSource AncestorType=Window}}">
+        <StackPanel Margin="10" Spacing="8" MaxWidth="{Binding Bounds.Width, RelativeSource={RelativeSource AncestorType=ScrollViewer}}">        
+            <Button Name="toolInfoButton" Content="What is this tool?" ToolTip.Tip="Clicking this button will reveal more information about what this tool does." Click="ToolInfoButton_Click"></Button>
+
+            <Button Name="amendInfoButton" Content="What does amending files do?" ToolTip.Tip="Clicking this button will reveal more information about what this tool does." Click="AmendInfoButton_Click"></Button>
+            <Button Name="copyInfoButton" Content="What does copying files do?" ToolTip.Tip="Clicking this button will reveal more information about what this tool does." Click="CopyInfoButton_Click"></Button>
+            <Button Name="moveInfoButton" Content="What does moving files do?" ToolTip.Tip="Clicking this button will reveal more information about what this tool does." Click="MoveInfoButton_Click"></Button>
+            <Button Name="addParametersInfoButton" Content="What does adding parameters to files do?" ToolTip.Tip="Clicking this button will reveal more information about what this tool does." Click="AddParametersInfoButton_Click"></Button>
+            <Button Name="createPairedBaseInfoButton" Content="What does creating paired bases to files do?" ToolTip.Tip="Clicking this button will reveal more information about what this tool does." Click="CreatePairedBaseInfoButton_Click"></Button>
+         
+     
+            <Button Content="Return to main menu..." Click="MenuItem_Click" Foreground="OrangeRed"></Button>
+            
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8" MaxWidth="{Binding Bounds.Width, RelativeSource={RelativeSource AncestorType=StackPanel}}">
+                <Border 
+                    BorderBrush="Gray"
+                    BorderThickness="2"
+                    Padding="4"
+                    Margin="4"
+                    Grid.Column="0"
+                    MaxWidth="{Binding Bounds.Width, RelativeSource={RelativeSource AncestorType=Grid}}"
+                    >         
+                    <ScrollViewer Name="infoScroller" MaxHeight="200" MaxWidth="{Binding Bounds.Width, RelativeSource={RelativeSource AncestorType=Border}}" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                        <SelectableTextBlock Name="infoBlock" TextWrapping="Wrap" FontFamily="Consolas"/>
+                    </ScrollViewer>
+                </Border>      
+            </Grid>  
+        </StackPanel>   
+    </ScrollViewer>
+</Window>

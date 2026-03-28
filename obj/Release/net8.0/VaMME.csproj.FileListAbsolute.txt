@@ -70,3 +70,4 @@ C:\Users\blood\Desktop\SysWOW33\myscripts\VaMME\VaMME\obj\Release\net8.0\refint\
 C:\Users\blood\Desktop\SysWOW33\myscripts\VaMME\VaMME\obj\Release\net8.0\VaMME.pdb
 C:\Users\blood\Desktop\SysWOW33\myscripts\VaMME\VaMME\obj\Release\net8.0\VaMME.genruntimeconfig.cache
 C:\Users\blood\Desktop\SysWOW33\myscripts\VaMME\VaMME\obj\Release\net8.0\ref\VaMME.dll
+C:\Users\blood\Desktop\SysWOW33\myscripts\VaMME\VaMME\obj\Release\net8.0\VaMME.sourcelink.json

@@ -28,7 +28,6 @@
               </MenuItem>
 
               <MenuItem Header="Copy"           ToolTip.Tip="Contains functions that copy files in one way or another.">
-                <MenuItem Header="Linear"       Click="run_Copy_Linear"     ToolTip.Tip="Copy all files from one or more directories to one or more directories."/>
                 <MenuItem Header="Recursive"    Click="run_Copy_Recursive"  ToolTip.Tip="Copy all compatible files in a directory recursively to one or more directories."/>
                 <MenuItem Header="EBMPC"        Click="run_Copy_EBMPC"      ToolTip.Tip="Example-Based Mass-Parameterised Copy - Will copy one file into multiple target directories and within each directory, get the first matching example and inject it with the found parameters as specified by the user."/>
               </MenuItem>
@@ -44,12 +43,11 @@
               </MenuItem>
 
               <MenuItem Header="Create" ToolTip.Tip="Functions that relate to the creation of files from scratch. Useful for creating skeleton structures.">
-                <MenuItem Header="Paired Base - .vmt" Click="run_Create_PairedBase" ToolTip.Tip="Will create a .vmt file for each .vtf file in a specified directory by using a specified base .vmt file"/>
+                <MenuItem Header="Paired Base - .vmt from .vtf as $basetexture" Click="run_Create_PairedBase" ToolTip.Tip="Will create a .vmt file for each .vtf file in a specified directory by using a specified base .vmt file, where each .vtf is going to be used as a $basetexture."/>
+                <MenuItem Header="Paired Base - .vmt from .vtf as $detail" Click="run_Create_PairedBaseDetail" ToolTip.Tip="Will create a .vmt file for each .vtf file in a specified directory by using a specified base .vmt file, where each .vtf is going to be used as a $detail."/>
               </MenuItem>
 
-              <MenuItem Header="Settings" ToolTip.Tip="Review the program's settings."></MenuItem>
-
-              <MenuItem Header="Help" ToolTip.Tip="WIP - View more information about how to use the program, good practices and more!" Click="testWindow"></MenuItem>
+              <MenuItem Header="Help" ToolTip.Tip="View more information about how to use the program and more!" Click="helpWindow"></MenuItem>
 
               <MenuItem Header="Exit" ToolTip.Tip="Exit the program." Click="exitProgram"></MenuItem>
 

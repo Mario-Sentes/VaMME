@@ -1,58 +1,82 @@
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Documents;
 using Avalonia.Input;
-using Avalonia.Markup.Xaml;
 using Avalonia.Media;
+using HarfBuzzSharp;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
-using Tmds.DBus.Protocol;
-using VaMME;
-using VaMME.ViewModels;
 using VaMME.Views;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Net.WebRequestMethods;
 
 namespace VaMME;
-
+/// <summary>
+/// A static class containing various shorthanded error messages to display when an error occurs.
+/// </summary>
 public static class ErrMsgs
 {
-    public const string DIRNOTFOUND = "The specified directory does not exist!";
-    public const string NULLDIR = "No directory was specified!";
-    public const string NULLFILE = "No file was specified!";
-    public const string FILENOTFOUND = "The specified file does not exist!";
     public const string ACCESSDENIED = "Access is denied!";
-    public const string INVALIDINPUT = "The input is invalid!";
-    public const string NOPARAM = "No parameter was provided!";
-    public const string NOPARAMVAL = "No parameter value was provided!";
-    public const string INVALIDPARAM = "Invalid parameter was provided!";
+
+    public const string DIRNOTFOUND = "The specified directory does not exist!";
     public const string DUPLICATEPARAM = "Parameter already exists in the list!";
     public const string DUPLICATEFILE = "File already exists in the list!";
     public const string DUPLICATEFOLDER = "Folder already exists in the list!";
+
+    public const string FILENOTFOUND = "The specified file does not exist!";
+
+    public const string INVALIDINPUT = "The input is invalid!";
+    public const string INVALIDPARAM = "Invalid parameter was provided!";
+
+    public const string MALFORMEDFILE = "This file is malformed and cannot be parsed properly!";
     public const string MOVEFAILED = "File moving failed!";
+
+    public const string NOEXAMPLEFILE = "No suitable example file was found!";
+    public const string NOPARAM = "No parameter was provided!";
+    public const string NOPARAMFOUND = "No eligible parameter was found!";
+    public const string NOPARAMTOREMOVE = "No parameters could be removed from the list as the list is empty!";
+    public const string NOPARAMVAL = "No parameter value was provided!";
+
+    public const string NULLDIR = "No directory was specified!";
+    public const string NULLFILE = "No file was specified!";
 }
 
+/// <summary>
+/// A static class containing various shorthanded warning messages to display when a warning must be displayed to the user.
+/// </summary>
 public static class WrnMsgs
 {
-    public const string USINGCRUDELINES = "You are using a crude line editing tool! This is not recommended! Please use another approach if possible!";
+    public const string MAXFOLDERSREACHED = "This field has been disabled as the maximum number of folders has been reached!";
+    public const string MAXFILESREACHED = "This field has been disabled as the maximum number of files has been reached!";
+
+    public const string NOTASKEFFECT = "Task will not have effect as one or more of the relevant fields are empty!";
+
     public const string REMOVEDPARAM = "Removed parameter pair!";
     public const string REMOVEDFILE = "Removed file!";
     public const string REMOVEDFOLDER = "Removed folder!";
-    public const string MAXFOLDERSREACHED = "This field has been disabled as the maximum number of folders has been reached!";
-    public const string MAXFILESREACHED = "This field has been disabled as the maximum number of files has been reached!";
-}
 
+    public const string USINGCRUDELINES = "You are using a crude line editing tool! This is not recommended! Please use another approach if possible!";
+}
+/// <summary>
+/// A class that handles all familiar operations, from executing the desired changes to validating input and emitting changes to the UI.
+/// </summary>
 public partial class Engine : Window
 {
+    /// <summary>
+    /// A list containing the folders with the files to be edited.
+    /// </summary>
     private List<string> folderList;
+
+    /// <summary>
+    /// A list containing the files to be edited.
+    /// </summary>
     private List<string> fileList;
+
+    /// <summary>
+    /// An OrderedDictionary that contains all relevant parameters, usually in format '"$parameterKey"  "parameterValue"'. 
+    /// </summary>
     private OrderedDictionary parametersList;
 
     public IBrush errorColor = Brushes.OrangeRed;
@@ -66,18 +90,24 @@ public partial class Engine : Window
     private bool alternateFileLineColor = false;
     private bool alternateFolderLineColor = false;
 
-    private HashSet<string> batchsource = new HashSet<string>();
+    /// <summary>
+    /// The file extension to be targeted. Is set to "*.vmt" by default.
+    /// </summary>
+    readonly string targetFileExtension = "*.vmt";
 
-    string targetFileExtension = "*.vmt";
+    //these strings are just for easier documentation
+    readonly string typicalFileFormat = @"C:\myFolder\my other_folder\...\myFile.myFileExtension";
+    readonly string typicalFolderFormat = @"C:\myFolder\my other_folder\...\myTerminalFolder\";
+    readonly string typicalParameterFormat = "\"$parameterKey\"     \"parameterValue\"";
 
     const string paramRegex = @"^\s*""(\$[\w]+)""\s*""([^""]*)""";
     const string duplicateSlashRegex = @"\/{2,}";
 
-    //TODO BUG;
-    //THE REGEX DOES NOT RECOGNIZE VALID PARAMETERS THAT ARE NOT ENCAPSULATED IN QUOTATION MARKS
-
-    string[] validvmtparameters = new string[]
-{
+    /// <summary>
+    /// An array of valid .vmt parameter keys.
+    /// </summary>
+    readonly string[] validvmtparameters = new string[]
+    {
             "$basetexture"
             ,"$basetexturetransform"
             ,"$frame"
@@ -178,24 +208,46 @@ public partial class Engine : Window
             ,"$nodecal"
     };
 
-    HashSet<string> validparams = new HashSet<string>();
+    
 
-    string[] acceptedfileextensions = new string[]
+    /// <summary>
+    /// An array of acceptable file extensions for text input.
+    /// </summary>
+    readonly string[] acceptedfileextensions = new string[]
     {
             "*.vmt",
-            "*.txt",
-            "*.psd",
-            "*.png"
+            "*.txt"
     };
 
-    HashSet<string> validext = new HashSet<string>();
+    /// <summary>
+    /// A HashSet of unique file extension strings.
+    /// See <see cref="acceptedfileextensions"/> for a list of acceptable file extensions.
+    /// </summary>
+    readonly HashSet<string> validext = new HashSet<string>();
 
-    private int taskID = -1;
-    private string UID = "";
+    /// <summary>
+    /// A HashSet of unique parameter key/value string pairs.
+    /// </summary>
+    readonly HashSet<string> validparams = new HashSet<string>();
+
+    /// <summary>
+    /// An integer field containing the ID of the task to be executed.
+    /// See also the <see cref="EngineOperations"/> enum.
+    /// </summary>
+    private EngineOperations taskID;
 
     private bool ctrlHeld = false;
 
-    public Engine(int taskID)
+    /// <summary>
+    /// A constructor to the Engine class.
+    /// Calls InitializeComponent(), 
+    /// subscribes to the KeyDown and KeyUp event handlers, 
+    /// initialises the relevant <see cref="folderList"/>, <see cref="fileList"/> and <see cref="parametersList"/> lists, 
+    /// populates <see cref="validparams"/> and <see cref="validext"/>,
+    /// and sets the <see cref="taskID"/> according to the provided parameter.
+    /// </summary>
+    /// <param name="taskID"> An enum element; should be derived from the <see cref="EngineOperations"/> enum.</param>
+    public Engine(EngineOperations taskID)
     {
         InitializeComponent();
 
@@ -216,10 +268,34 @@ public partial class Engine : Window
             validext.Add(acceptedfileextensions[i]);
         }
 
-        setTaskID(taskID);
+        SetTaskID(taskID);
+
+        if (taskID == EngineOperations.AmendRecursive)
+        {
+            files.IsEnabled = false;
+            addFileButton.IsEnabled = false;
+        }
+        else if (taskID == EngineOperations.AmendFixer || taskID == EngineOperations.CopyRecursive || taskID == EngineOperations.MoveLinear)
+        {
+            parameterKeys.IsEnabled = false;
+            parameterValues.IsEnabled = false;
+
+            addParameterPairButton.IsEnabled = false;
+        }
+        else if (taskID == EngineOperations.AddParametersSingular)
+        {
+            folders.IsEnabled = false;
+            addFolderButton.IsEnabled = false;
+        }
+
+
 
     }
-
+    /// <summary>
+    /// Handles events relating to the depressing of specific keys.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Engine_KeyUp(object? sender, KeyEventArgs e)
     {
         if (e.Key == Key.LeftCtrl || e.Key == Key.RightCtrl)
@@ -227,7 +303,11 @@ public partial class Engine : Window
             ctrlHeld = false;
         }
     }
-
+    /// <summary>
+    /// Handles events relating to the pressing of specific keys.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void Engine_KeyDown(object? sender, KeyEventArgs e)
     {
         if (e.Key == Key.LeftCtrl || e.Key == Key.RightCtrl)
@@ -237,131 +317,228 @@ public partial class Engine : Window
 
         if (e.Key == Key.Escape)
         {
-            AbortTask(sender, e);
+            AbortTask(sender, e); //exit the current task
         }
     }
-
-    private void setTaskID(int inputTaskID)
+    /// <summary>
+    /// Sets the current <see cref="taskID"/> of the engine.
+    /// </summary>
+    /// <param name="inputTaskID"> The new taskID. </param>
+    private void SetTaskID(EngineOperations inputTaskID)
     {
         taskID = inputTaskID;
     }
-
-    private int getTaskID()
+    /// <summary>
+    /// Returns the current <see cref="taskID"/>.
+    /// </summary>
+    /// <returns></returns>
+    private EngineOperations GetTaskID()
     {
         return taskID;
     }
-
+    /// <summary>
+    /// Executes the current operation as dictated by <see cref="taskID"/>.
+    /// Will issue a message to notify the user of this, then a success message once the task finishes.
+    /// Will clear all UI fields once the task is complete, as well as their associated data structures. See <see cref="ResetAllFields"/>.
+    /// </summary>
     private void ExecuteTask()
     {
-        issueNormalMessage($"Task with ID {taskID.ToString()} has been started...");
+        IssueNormalMessage($"Task with ID {taskID.ToString()} has been started...");
 
-        if (taskID == (int)EngineOperations.AmendLinear)
+        if (taskID == EngineOperations.AmendLinear)
         {
-            var files = convertFilesFromFolders(folderList, fileList);
-            amendfilesindirectory(files, parametersList);
-        }
-        else if (taskID == (int)EngineOperations.AmendRecursive)
-        {
-            HashSet<string> uniqueFolders = new HashSet<string>();
-
-            List<string> x = new List<string>();
-
-            foreach (string recursiveFolder in folderList)
+            if (fileList.Count < 1 || folderList.Count < 1 || parametersList.Count < 1)
             {
-                x = validateMultiDirRecursive(recursiveFolder);
-                x.Add(recursiveFolder);
-                foreach (string terminalFolder in x)
+                IssueWarningMessage(WrnMsgs.NOTASKEFFECT);
+            }
+            else
+            {
+                var files = ConvertFilesFromFolders(folderList, fileList);
+                AmendFiles(files, parametersList);
+            }
+        }
+        else if (taskID == EngineOperations.AmendRecursive)
+        {
+            if (folderList.Count < 1 || parametersList.Count < 1)
+            {
+                IssueWarningMessage(WrnMsgs.NOTASKEFFECT);
+            }
+            else
+            {
+                HashSet<string> uniqueFolders = new HashSet<string>();
+
+                List<string> x = new List<string>();
+
+                foreach (string recursiveFolder in folderList)
                 {
-                    uniqueFolders.Add(terminalFolder);
+                    x = ValidateMultiDirRecursive(recursiveFolder);
+                    x.Add(recursiveFolder);
+                    foreach (string terminalFolder in x)
+                    {
+                        uniqueFolders.Add(terminalFolder);
+                    }
+                }
+
+                AmendFiles(uniqueFolders, parametersList);
+            }
+        }
+        else if (taskID == EngineOperations.AmendFixer)
+        {
+            if (folderList.Count < 1)
+            {
+                IssueWarningMessage(WrnMsgs.NOTASKEFFECT);
+            }
+            else
+            {
+                foreach (string folder in folderList)
+                {
+                    FixFiles(folder);
                 }
             }
-
-            amendfilesindirectory(uniqueFolders, parametersList);
         }
-        else if (taskID == (int)EngineOperations.AmendFixer)
+        else if (taskID == EngineOperations.CopyRecursive)
         {
-            foreach (string folder in folderList)
+            if (folderList.Count < 1)
             {
-                fixFiles(folder);
+                IssueWarningMessage(WrnMsgs.NOTASKEFFECT);
             }
-        }
-        else if (taskID == (int)EngineOperations.CopyLinear)
-        {
-            foreach (var targetFolder in folderList)
+            else
             {
-                foreach (var sourceFile in fileList)
+                foreach (var targetFolder in folderList)
                 {
-                    copyFile(sourceFile, targetFolder);
+                    foreach (var sourceFile in fileList)
+                    {
+                        CopyFile(sourceFile, targetFolder);
+                    }
                 }
             }
         }
-        else if (taskID == (int)EngineOperations.CopyEMBPC)
+        else if (taskID == EngineOperations.CopyEMBPC)
         {
-            foreach (var file in fileList)
+            if (fileList.Count < 1 || folderList.Count < 1 || parametersList.Count < 1)
             {
-                EBMPC(file, folderList, parametersList);
+                IssueWarningMessage(WrnMsgs.NOTASKEFFECT);
+            }
+            else
+            {
+                foreach (var file in fileList)
+                {
+                    EBMPC(file, folderList, parametersList);
+                }
             }
         }
-        else if (taskID == (int)EngineOperations.MoveLinear)
+        else if (taskID == EngineOperations.MoveLinear)
         {
-            foreach (var dir in folderList)
+            if (fileList.Count < 1 || folderList.Count < 1)
             {
-                moveFile(fileList, dir);
+                IssueWarningMessage(WrnMsgs.NOTASKEFFECT);
+            }
+            else
+            {
+                foreach (var dir in folderList)
+                {
+                    MoveFile(fileList, dir);
+                }
             }
         }
-        else if (taskID == (int)EngineOperations.AddParametersSingular)
+        else if (taskID == EngineOperations.AddParametersSingular)
         {
-            if (fileList.Count > 0)
+            if (fileList.Count < 1 || parametersList.Count < 1)
             {
-                addParameterToFile(parametersList, fileList[0]);
+                IssueWarningMessage(WrnMsgs.NOTASKEFFECT);
+            }
+            else 
+            { 
+                AddParametersToFile(parametersList, fileList[0]);
             }
         }
-        else if (taskID == (int)EngineOperations.AddParametersLinear)
+        else if (taskID == EngineOperations.AddParametersLinear || taskID == EngineOperations.AddParametersMultiple)
         {
-            foreach (var file in fileList)
+            if (parametersList.Count > 0 && (fileList.Count > 0 || folderList.Count > 0))
             {
-                addParameterToFile(parametersList, file);
-            }
-        }
-        else if (taskID == (int)EngineOperations.AddParametersMultiple)
-        {
-            fileList.AddRange(convertFilesFromFolders(folderList).ToList());
+                var files = ConvertFilesFromFolders(folderList, fileList);
 
-            foreach (var file in fileList)
+                foreach (var file in files)
+                {
+                    AddParametersToFile(parametersList, file);
+                }
+            }
+            else
             {
-                addParameterToFile(parametersList, file);
+                IssueWarningMessage(WrnMsgs.NOTASKEFFECT);
+            }
+            
+        }
+        else if (taskID == EngineOperations.CreatePairedBase)
+        {
+            if (folderList.Count > 0 && fileList.Count > 0)
+            {
+                foreach (var folder in folderList)
+                {
+                    CreateNewVMTsFromVTFdir(folder, fileList[0], false);
+                }
+            }
+            else
+            {
+                IssueWarningMessage(WrnMsgs.NOTASKEFFECT);
             }
         }
-        else if (taskID == (int)EngineOperations.CreatePairedBase)
+        else if (taskID == EngineOperations.CreatePairedBaseDetail)
         {
-            createNewVMTsFromVTFdir();
+            if (folderList.Count > 0 && fileList.Count > 0)
+            {
+                foreach (var folder in folderList)
+                {
+                    CreateNewVMTsFromVTFdir(folder, fileList[0], true);
+                }
+            }
+            else
+            {
+                IssueWarningMessage(WrnMsgs.NOTASKEFFECT);
+            }
         }
 
-            issueSuccessMessage($"Task {(EngineOperations)taskID} with ID {taskID.ToString()} has finished!");
+        IssueSuccessMessage($"Task {(EngineOperations)taskID} has finished!");
 
-        resetAllFields();
+        ResetAllFields();
     }
-
+    /// <summary>
+    /// Returns to the main menu by calling <see cref="this.Close()"/>.
+    /// </summary>
     private void ReturnToMain()
     {
         this.Close();
     }
-
+    /// <summary>
+    /// Aborts the current task by calling <see cref="ReturnToMain()"/>.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void AbortTask(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         ReturnToMain();
     }
-
+    /// <summary>
+    /// Starts the current task by calling <see cref="ExecuteTask()"/>.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void StartTask(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         ExecuteTask();
     }
-
-    private void removeParameter(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    /// <summary>
+    /// Removes one or all parameters from <see cref="parametersList"/> by calling <see cref="RemoveLastParameterPair()"/>, depending on the value of the <see cref="ctrlHeld"/> <see cref="bool"/>.
+    /// If <see cref="true"/>, removes all parameter pairs. If <see cref="false"/>, removes only the last parameter pair.
+    /// If no parameter pairs exist, will call <see cref="issueErrorMessage_NoExc()"/>.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void RemoveParameter(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         if (parametersList.Count <= 0)
         {
-            issueErrorMessage_NoExc("Attempted to remove parameter pair from empty list! Ignoring...");
+            IssueErrorMessage_NoExc(ErrMsgs.NOPARAMTOREMOVE);
         }
         else
         {
@@ -369,22 +546,29 @@ public partial class Engine : Window
             {
                 while (parametersList.Count>0)
                 {
-                    removeLastParameterPair();
+                    RemoveLastParameterPair();
                 }
             }
             else
             {
-                removeLastParameterPair();   
+                RemoveLastParameterPair();   
             }
         }
 
-        redrawParametersToUI();
+        RedrawParametersToUI();
     }
-    private void removeFolder(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    /// <summary>
+    /// Removes one or all folders from <see cref="folderList"/> by calling <see cref="RemoveLastFolder()"/>, depending on the value of the <see cref="ctrlHeld"/> <see cref="bool"/>.
+    /// If <see cref="true"/>, removes all folders. If <see cref="false"/>, removes only the last folder.
+    /// If no folder exists, will call <see cref="issueErrorMessage_NoExc()"/>.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void RemoveFolder(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         if (folderList.Count <= 0)
         {
-            issueErrorMessage_NoExc("Attempted to remove folder from empty list! Ignoring...");
+            IssueErrorMessage_NoExc("Attempted to remove folder from empty list! Ignoring...");
         }
         else
         {
@@ -392,28 +576,39 @@ public partial class Engine : Window
             {
                 while (folderList.Count>0)
                 {
-                    removeLastFolder();
+                    RemoveLastFolder();
                 }
             }
             else
             {
-                removeLastFolder();
+                RemoveLastFolder();
             }
         }
 
-        redrawFoldersToUI();
+        RedrawFoldersToUI();
     }
-    private void removeLastFolder()
+    /// <summary>
+    /// Removes the last folder in <see cref="folderList"/> and calls <see cref="IssueWarningMessage(string)"/> to let the user know which folder was last removed. 
+    /// CAUTION: Does not affect UI.
+    /// </summary>
+    private void RemoveLastFolder()
     {
         var x = folderList[folderList.Count - 1];
-        issueWarningMessage(WrnMsgs.REMOVEDFOLDER + $" Folder: {x}");
+        IssueWarningMessage(WrnMsgs.REMOVEDFOLDER + $" Folder: {x}");
         folderList.Remove(x);
     }
-    private void removeFile(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    /// <summary>
+    /// Removes one or all files from <see cref="fileList"/> by calling <see cref="RemoveLastFile()"/>, depending on the value of the <see cref="ctrlHeld"/> <see cref="bool"/>.
+    /// If <see cref="true"/>, removes all files. If <see cref="false"/>, removes only the last file.
+    /// If no file exists, will call <see cref="issueErrorMessage_NoExc()"/>.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void RemoveFile(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         if (fileList.Count <= 0)
         {
-            issueErrorMessage_NoExc("Attempted to remove file from empty list! Ignoring...");
+            IssueErrorMessage_NoExc("Attempted to remove file from empty list! Ignoring...");
         }
         else
         {
@@ -421,90 +616,113 @@ public partial class Engine : Window
             {
                 while (fileList.Count > 0)
                 {
-                    removeLastFile();
+                    RemoveLastFile();
                 }
             }
             else 
             {
-                removeLastFile();
+                RemoveLastFile();
             }
         }
 
-        redrawFilesToUI();
+        RedrawFilesToUI();
     }
-    private void removeLastFile()
+
+    /// <summary>
+    /// Removes the last file in <see cref="fileList"/> and calls <see cref="IssueWarningMessage(string)"/> to let the user know which file was last removed. 
+    /// CAUTION: Does not affect UI.
+    /// </summary>
+    private void RemoveLastFile()
     {
         var x = fileList[fileList.Count - 1];
-        issueWarningMessage(WrnMsgs.REMOVEDFILE + $" File: {x}");
+        IssueWarningMessage(WrnMsgs.REMOVEDFILE + $" File: {x}");
         fileList.Remove(x);
     }
 
-    void amendfilesindirectory(HashSet<string> files, OrderedDictionary par)
+    /// <summary>
+    /// Changes a <see cref="HashSet{string}"/> of files using a provided <see cref="OrderedDictionary"/>, in format <see cref="typicalParameterFormat"/>, by making calls to <see cref="WriteFile(string, ref List{string})"/>.
+    /// See also <see cref="WriteFile(string, ref List{string})"/>.
+    /// </summary>
+    /// <param name="files">The <see cref="HashSet{T}"/> container with all the unique file paths, in format <see cref="typicalFileFormat"/>.</param>
+    /// <param name="par">The <see cref="OrderedDictionary"/> container with all the relevant parameters to edit into the <see cref="files"/>.</param>
+    void AmendFiles(HashSet<string> files, OrderedDictionary par)
     {
         List<string> contents = new List<string>();
 
         if (par.Count <= 0)
         {
-            issueErrorMessage_NoExc(ErrMsgs.NOPARAM);
+            IssueErrorMessage_NoExc(ErrMsgs.NOPARAM);
             return;
         }
 
         foreach (string file in files)
         {
-            contents = getParameterisedFile(file, par);
-            issueNormalMessage($"Found file {file}...");
+            contents = GetParameterisedFile(file, par);
+            IssueNormalMessage($"Found file {file}...");
 
             foreach (var item in contents)
             {
-                issueNormalMessage(item);
+                IssueNormalMessage(item);
             }
 
-            writeFile(file, ref contents);
+            WriteFile(file, ref contents);
         }
     }
-
-    bool dirExists(string path)
+    /// <summary>
+    /// Determines whether a folder exists. Updates the UI accordingly and returns true if the folder exists, false otherwise.
+    /// </summary>
+    /// <param name="path">The path to the folder, in format <see cref="typicalFolderFormat"/>.</param>
+    /// <returns></returns>
+    bool FolderExists(string path)
     {
         if (path == null || path == "")
         {
-            issueErrorMessage_NoExc(ErrMsgs.NULLDIR);
+            IssueErrorMessage_NoExc(ErrMsgs.NULLDIR);
             return false;
         }
 
         if (Directory.Exists(path))
         {
-            issueSuccessMessage($"Directory at path > {path} < has been located successfully!");
+            IssueSuccessMessage($"Directory at path > {path} < has been located successfully!");
             return true;
         }
 
-        issueErrorMessage_NoExc(ErrMsgs.DIRNOTFOUND + $" Dir: {path}");
+        IssueErrorMessage_NoExc(ErrMsgs.DIRNOTFOUND + $" Dir: {path}");
         return false;
 
     }
-
-    bool fileExists(string path)
+    /// <summary>
+    /// Determines whether a file exists. Updates the UI accordingly and returns true if the file exists, false otherwise.
+    /// </summary>
+    /// <param name="path">The path to the folder, in format <see cref="typicalFileFormat"/>.</param>
+    /// <returns></returns>
+    bool FileExists(string? path)
     {
         if (path == null || path == "")
         {
-            issueErrorMessage_NoExc(ErrMsgs.NULLFILE);
+            IssueErrorMessage_NoExc(ErrMsgs.NULLFILE);
             return false;
         }
 
         if (System.IO.File.Exists(path))
         {
-            issueSuccessMessage($"File at path > {path} < has been located successfully!");
+            IssueSuccessMessage($"File at path > {path} < has been located successfully!");
             return true;
         }
 
-        issueErrorMessage_NoExc(ErrMsgs.FILENOTFOUND + $" File: {path}");
+        IssueErrorMessage_NoExc(ErrMsgs.FILENOTFOUND + $" File: {path}");
         return false;
     }
-
-    List<string> validateMultiDirRecursive(string path)
+    /// <summary>
+    /// Returns a list containing all directories nested within the provided folder and issues a success message to the UI. Returns the empty list if the provided folder does not contain any folders.
+    /// </summary>
+    /// <param name="path">The complete path to the folder to look into, in format <see cref="typicalFolderFormat"/>.</param>
+    /// <returns></returns>
+    List<string> ValidateMultiDirRecursive(string path)
     {
         List<string> s = new List<string>();
 
-        var dirs = getAllSubdirs(path);
+        var dirs = GetAllSubdirs(path);
 
         if (dirs == null || dirs.Length < 1)
         {
@@ -515,16 +733,20 @@ public partial class Engine : Window
             foreach (var dir in dirs)
             {
                 s.Add(dir);
-                s.AddRange(validateMultiDirRecursive(dir));
+                s.AddRange(ValidateMultiDirRecursive(dir));
             }
         }
 
-        issueSuccessMessage($"Successfully added the subdirectories of '{path}' to the list!");
+        IssueSuccessMessage($"Successfully added the subdirectories of '{path}' to the list!");
 
         return s;
     }
-
-    string[] getAllSubdirFiles(string path)
+    /// <summary>
+    /// Returns a <see cref="string"/> array containing all files nested within the provided folder that match <see cref="targetFileExtension"/>. Returns the empty array if the provided folder does not contain any files, or if an error occurs during the operation.
+    /// </summary>
+    /// <param name="path">The path of the folder to look for files into, in format <see cref="typicalFolderFormat"/>.</param>
+    /// <returns></returns>
+    string[] GetAllSubdirFiles(string path)
     {
         try
         {
@@ -532,116 +754,62 @@ public partial class Engine : Window
         }
         catch (Exception e)
         {
-            issueErrorMessage(ErrMsgs.ACCESSDENIED, e);
+            IssueErrorMessage(ErrMsgs.ACCESSDENIED, e);
             return [];
         }
     }
-
-    string[] getAllSubdirs(string path)
+    /// <summary>
+    /// Returns a <see cref="string"/> array containing all directories nested within the provided folder. Returns the empty array if the provided folder does not contain any folders, or if an error occurs during the operation.
+    /// </summary>
+    /// <param name="path">The path of the folder to look for folders into, in format <see cref="typicalFolderFormat"/>.</param>
+    /// <returns></returns>
+    string[] GetAllSubdirs(string path)
     {
-        return Directory.GetDirectories(path);
+        try
+        {
+            return Directory.GetDirectories(path);
+        }
+        catch (Exception e)
+        {
+            IssueErrorMessage(ErrMsgs.ACCESSDENIED, e);
+            return [];
+        }
     }
-
-    string getFileNameFromPath(string filepath, string filedir)
-    {
-        string s;
-
-        s = filepath.Remove(0, filedir.Length + 1);
-
-        return s;
-    }
-
-    string getFileName(string filepath)
+    /// <summary>
+    /// Returns the file name and extension of the specified file, as according to the provided filepath. 
+    /// If the provided path ends in '/' or its operating system equivalent, returns <see cref="string.Empty"/>.
+    /// If the provided path is null, it returns null.
+    /// </summary>
+    /// <param name="filepath">The path of the file, in format <see cref="typicalFileFormat"/>.</param>
+    /// <returns>Just the name of the file + its extension. Example: myFile.vmt</returns>
+    static string GetFileName(string filepath)
     {
         return Path.GetFileName(filepath);
     }
-
-    string getFileName_NoExtension(string filepath)
+    /// <summary>
+    /// Returns the file name of the specified file, as according to the provided filepath, excluding its extension. 
+    /// If the provided path ends in '/' or its operating system equivalent, returns <see cref="string.Empty"/>.
+    /// If the provided path is null, it returns null.
+    /// </summary>
+    /// <param name="filepath">The path of the file, in format <see cref="typicalFileFormat"/>.</param>
+    /// <returns>Just the name of the file. Example: myFile</returns>
+    static string GetFileName_NoExtension(string filepath)
     {
         return Path.GetFileNameWithoutExtension(filepath);
     }
-
-    Dictionary<string, string> getParams()
-    {
-        Dictionary<string, string> parameterPairs = new Dictionary<string, string>();
-
-        bool doneparam = false;
-
-        while (!doneparam)
-        {
-            Console.Clear();
-            Console.WriteLine("When a valid parameter is entered, pressing enter will continue to the parameter's value.");
-            Console.WriteLine("If no parameter is provided and enter is pressed, the program will return to the menu.");
-            Console.WriteLine("If a parameter was already provided, pressing enter will continue to the files being amended as requested.");
-
-            displayParametersInDictionary(parameterPairs);
-
-            Console.WriteLine("\nPlease state your parameter, in format '$parametername': ");
-
-            string proc = Console.ReadLine();
-
-            if (proc == "")
-            {
-                doneparam = true;
-                break;
-            }
-
-            if (validparams.Contains(proc))
-            {
-                //valid parameter has been found
-                Console.Clear();
-                Console.WriteLine("{0} is a valid parameter! Now enter its desired value: ", proc);
-                parameterPairs.Add(proc, Console.ReadLine());
-                Console.WriteLine("Parameter > \"{0}\" < has been successfully added!", proc);
-            }
-        }
-
-        return parameterPairs;
-    }
-
-    Dictionary<string, string> getParamsNoVal()
-    {
-        Dictionary<string, string> x = new Dictionary<string, string>();
-
-        bool doneparam = false;
-
-        while (!doneparam)
-        {
-
-            Console.WriteLine("When a valid parameter is entered, pressing enter will continue to the parameter's value.");
-            Console.WriteLine("If no parameter is provided and enter is pressed, the program will return to the menu.");
-            Console.WriteLine("If a parameter was already provided, pressing enter will continue to the files being amended as requested.");
-
-            displayParametersInDictionaryNoVal(x);
-
-            Console.WriteLine("Please state your parameter, in format '$parametername': ");
-
-            string proc = Console.ReadLine();
-
-            if (proc == "")
-            {
-                doneparam = true;
-                break;
-            }
-
-            if (validparams.Contains(proc))
-            {
-                //valid parameter has been found
-                Console.Clear();
-                Console.WriteLine("{0} is a valid parameter!", proc);
-                x.Add(proc, "");
-                Console.WriteLine("Parameter > \"{0}\" < has been successfully added!", proc);
-            }
-        }
-
-        return x;
-    }
-
-    List<string> getParameterisedFile(string file, OrderedDictionary par)
+    /// <summary>
+    /// Returns a <see cref="string"/> <see cref="List{T}"/> containing the new contents of the file after applying parameters, according to the provided <see cref="OrderedDictionary"/>, and updates the UI throughout.
+    /// For each match line in the file, if a matching parameter key is found in the <see cref="OrderedDictionary"/>, the element in the list is mutated according to the matching parameter key/value pair in the <see cref="OrderedDictionary"/>.
+    /// The base file is not altered.
+    /// </summary>
+    /// <param name="fileandpath">The complete filepath to the file, in format <see cref="typicalFileFormat"/>.</param>
+    /// <param name="par">The container holding the parameter key/value pairs, in format <see cref="typicalParameterFormat"/>.</param>
+    /// <returns>A <see cref="string"/> <see cref="List{T}"/> containing the altered file contents, normalized to lowercase. The base file is not altered.</returns>
+    List<string> GetParameterisedFile(string fileandpath, OrderedDictionary par)
     {
         List<string> x = new List<string>();
 
-        using (StreamReader sr = System.IO.File.OpenText(file))
+        using (StreamReader sr = System.IO.File.OpenText(fileandpath))
         {
             string s;
             while ((s = sr.ReadLine()) != null)
@@ -655,10 +823,10 @@ public partial class Engine : Window
                     foreach (DictionaryEntry entry in par)
                     {
                         //if the parameter has been found               
-                        if (match.Groups[1].Value.ToLower() == entry.Key.ToString().ToLower())
+                        if (match.Groups[1].Value.ToLower().Equals(entry.Key.ToString().ToLower()))
                         {
                             s = $"                \"{entry.Key.ToString()}\"     \"{entry.Value.ToString()}\"";
-                            issueNormalMessage($">>> Found eligible parameter {entry.Key.ToString()} in file...");
+                            IssueNormalMessage($">>> Found eligible parameter {entry.Key.ToString()} in file...");
                         }
                     }
                 }
@@ -669,20 +837,28 @@ public partial class Engine : Window
 
         foreach (var item in x)
         {
-            issueNormalMessage(item);
+            IssueNormalMessage(item);
         }
 
         return x;
     }
 
-    List<string> getParameterisedFile_FullLine(string file, OrderedDictionary par)
+    /// <summary>
+    /// Returns a <see cref="string"/> <see cref="List{T}"/> containing the new contents of the file after applying parameters' values only, according to the provided <see cref="OrderedDictionary"/>, and updates the UI throughout.
+    /// For each match line in the file, if a matching parameter key is found in the <see cref="OrderedDictionary"/>, the element in the list is mutated according to the matching parameter's value only in the <see cref="OrderedDictionary"/>.
+    /// The base file is not altered.
+    /// </summary>
+    /// <param name="fileandpath">The complete filepath to the file, in format <see cref="typicalFileFormat"/>.</param>
+    /// <param name="par">The container holding the parameter key/value pairs, in format <see cref="typicalParameterFormat"/>.</param>
+    /// <returns>A <see cref="string"/> <see cref="List{T}"/> containing the altered file contents. The base file is not altered.</returns>
+    List<string> GetParameterisedFile_FullLine(string fileandpath, OrderedDictionary par)
     {
         List<string> x = new List<string>();
 
-        using (StreamReader sr = System.IO.File.OpenText(file))
+        using (StreamReader sr = System.IO.File.OpenText(fileandpath))
         {
-            string s;
-            string v;
+            string? s;
+            string? v;
             string res;
             while ((s = sr.ReadLine()) != null)
             {
@@ -698,8 +874,8 @@ public partial class Engine : Window
                         if ((res == v.ToLower()) && (v != null) && (v != "") && (res != null) && (res != ""))
                         {
                             s = entry.Value.ToString();
-                            issueNormalMessage($">>> Found eligible parameter {entry.Key} in file...");
-                            issueNormalMessage(s);
+                            IssueNormalMessage($">>> Found eligible parameter {entry.Key} in file...");
+                            IssueNormalMessage(s);
                         }
                     }
                 }
@@ -710,78 +886,93 @@ public partial class Engine : Window
 
         return x;
     }
-    void copyFile(string file, string destination)
+    /// <summary>
+    /// Copies a file from its starting full filepath (in format <see cref="typicalFileFormat"/>) to some destination folder (in format <see cref="typicalFolderFormat"/>).
+    /// If the operation fails due to an <see cref="Exception"/>, the file is skipped.
+    /// Updates the UI throughout.
+    /// </summary>
+    /// <param name="fileandpath">The full filepath of the file, in format <see cref="typicalFileFormat"/>.</param>
+    /// <param name="destination">The full filepath of the destination folder, in format <see cref="typicalFolderFormat"/>.</param>
+    void CopyFile(string fileandpath, string destination)
     {
-        string fileName = getFileName(file);
+        string fileName = GetFileName(fileandpath);
 
         try
         {
-            System.IO.File.Copy(file, destination + @"\" + fileName, true);
+            System.IO.File.Copy(fileandpath, destination + @"\" + fileName, true);
         }
         catch (Exception e)
         {
-            issueErrorMessage($"Paste for '{file}' in '{destination}' failed! Skipping...", e);
+            IssueErrorMessage($"Paste for '{fileandpath}' in '{destination}' failed! Skipping...", e);
         }
-        issueSuccessMessage($"Successfully pasted '{file}' in '{destination}'!");
+        IssueSuccessMessage($"Successfully pasted '{fileandpath}' in '{destination}'!");
     }
-    void copyFile_NewName(string file, string destination, string newName)
-    {
-        try
-        {
-            System.IO.File.Copy(file, destination + @"\" + newName, true);
-        }
-        catch (Exception)
-        {
-            issueWarningMessage($"Paste for '{newName}' from '{file}' in '{destination}' failed! Skipping...");
-        }
-        issueSuccessMessage($"Successfully pasted '{newName}' in '{destination}'!");
-    }
-
+    /// <summary>
+    /// Example-Based Mass Parameterised Copy - will copy one file from a complete filepath into multiple target directories, and within each directory, get the first matching example and inject it with the specified parameters in the <see cref="OrderedDictionary"/> container, in format <see cref="typicalParameterFormat"/>.
+    /// ALL parameters must match between the file to be copied and the file(s) found in the provided folders.
+    /// </summary>
+    /// <param name="fileToCopy">The complete file path of the file to be copied, in format <see cref="typicalFileFormat"/>.</param>
+    /// <param name="targetDirs">The <see cref="string"/> <see cref="List{T}"/> containing all folders to copy into, in format <see cref="typicalFolderFormat"/>.</param>
+    /// <param name="parameters">The <see cref="OrderedDictionary"/> container holding all the parameters, in format <see cref="typicalParameterFormat"/>.</param>
     void EBMPC(string fileToCopy, List<string> targetDirs, OrderedDictionary parameters)
     {
-        string filename = getFileName(fileToCopy);
-        string tempname;
+        string filename = GetFileName(fileToCopy);  
 
         //foreach directory in which the file needs to be copied
         foreach (string dir in targetDirs)
         {
-            //  copy the file into the directory
-            copyFile(fileToCopy, dir);
-            issueSuccessMessage($"File '{filename}' has been successfully copied into '{dir}'!");
+            string? exampleFile = null;
 
-            //  find first file instance which matches the specified parameters
-            //  ALL PARAMETERS MUST MATCH!!!
+            //find first file instance which matches the specified parameters
+            //ALL PARAMETERS MUST MATCH!!!
             foreach (var file in Directory.EnumerateFiles(dir, targetFileExtension))
             {
-                tempname = getFileName(file);
-                issueNormalMessage($"Looking at '{tempname}'...");
-                if (matchParamsToFile(file, parameters))
+                string tempname = GetFileName(file);
+                IssueNormalMessage($"Looking at '{tempname}'...");
+
+                if (MatchParamsToFile(file, parameters))
                 {
                     //a valid example file has been found
-                    issueNormalMessage($"File '{tempname}' has been found as a good example parameter file!");
+                    exampleFile = file;
+                    IssueNormalMessage($"File '{tempname}' has been found as a good example parameter file!");
                     break;
                 }
             }
-
+            
             string newFilePath = Path.Combine(dir, filename);
 
-            //  edit the new file with the new parameters
-            List<string> newContents = getParameterisedFile_FullLine(newFilePath, parameters);
+            if (exampleFile == null)
+            {
+                IssueErrorMessage_NoExc(ErrMsgs.NOEXAMPLEFILE + $" Folder: {dir}");
+                continue;
+            }
 
-            //  write the new file
-            writeFile(newFilePath, ref newContents);
+            //copy the file into the directory
+            CopyFile(fileToCopy, dir);
+            IssueSuccessMessage($"File '{filename}' has been successfully copied into '{dir}'!");
 
-            //  continue
-            issueSuccessMessage($"Successfully finished work on directory '{dir}'!");
+            //edit the new file with the new parameters
+            List<string> newContents = GetParameterisedFile_FullLine(exampleFile, parameters);
+
+            //write the new file
+            WriteFile(newFilePath, ref newContents);
+
+            //continue
+            IssueSuccessMessage($"Successfully finished work on directory '{dir}'!");
         }
     }
 
-    void moveFile(List<string> sourceFiles, string destinationDir)
+    /// <summary>
+    /// Moves a list of files to a single destination directory. Any file that cannot be moved is skipped and an error message is issued.
+    /// </summary>
+    /// <param name="sourceFiles">The <see cref="string"/> <see cref="List{T}"/> containing all files to move, in format <see cref="typicalFileFormat"/>.</param>
+    /// <param name="destinationDir">The destination folder to move files to, in format <see cref="typicalFolderFormat"/>.</param>
+    void MoveFile(List<string> sourceFiles, string destinationDir)
     {
         foreach (var file in sourceFiles)
         {
-            string fn = getFileName(file);
-            issueNormalMessage($"Analysing file '{fn}' at path '{file}'...");
+            string fn = GetFileName(file);
+            IssueNormalMessage($"Analysing file '{fn}' at path '{file}'...");
 
             try
             {
@@ -789,24 +980,30 @@ public partial class Engine : Window
             }
             catch (Exception e)
             {
-                issueErrorMessage(ErrMsgs.MOVEFAILED + $" For {fn} from {file} in {destinationDir}; Skipping...\n", e);
+                IssueErrorMessage(ErrMsgs.MOVEFAILED + $" For {fn} from {file} in {destinationDir}; Skipping...\n", e);
                 continue;
             }
-            issueSuccessMessage($"Successfully moved '{fn}' in '{destinationDir}'!\n");
+            IssueSuccessMessage($"Successfully moved '{fn}' in '{destinationDir}'!\n");
 
         }
     }
-
-    void writeFile(string fileandpath, ref List<string> contents)
+    /// <summary>
+    /// Writes a referenced <see cref="List"/> of type <see cref="string"/> to a specific file + path combination <see cref="string"/>.
+    /// First creates a temporary file by appending ".tmp" and writes to it.
+    /// CAUTION, automatic mutation: occurrences of "@filename" in the file's text are replaced with the name of the file.
+    /// Only once the operation successfully finishes, copies the contents to the desired file.
+    /// </summary>
+    /// <param name="fileandpath">The complete path of the file, in format <see cref="typicalFileFormat"/>.</param>
+    /// <param name="contents">The <see cref="string"/> <see cref="List"/> of new contents to write to the file.</param>
+    void WriteFile(string fileandpath, ref List<string> contents)
     {
         string temporaryFile = fileandpath + ".tmp";
 
-        string filename = getFileName(fileandpath);
-        string filename_noext = getFileName_NoExtension(fileandpath);
+        string filename_noext = GetFileName_NoExtension(fileandpath);
 
         using (StreamWriter writetext = new StreamWriter(temporaryFile))
         {
-            issueNormalMessage($"New file contents on '{fileandpath}':");
+            IssueNormalMessage($"New file contents on '{fileandpath}':");
 
             for (int i = 0; i < contents.Count(); i++)
             {
@@ -815,7 +1012,7 @@ public partial class Engine : Window
                     contents[i] = contents[i].Replace("@filename", filename_noext);
                 }
 
-                issueNormalMessage(contents[i]);
+                IssueNormalMessage(contents[i]);
 
                 writetext.WriteLine(contents[i]);
             }
@@ -824,12 +1021,18 @@ public partial class Engine : Window
         System.IO.File.Copy(temporaryFile, fileandpath, true);
         System.IO.File.Delete(temporaryFile);
     }
-
-    bool matchParamsToFile(string file, OrderedDictionary par)
+    /// <summary>
+    /// Checks whether the provided file <see cref="string"/> contains the parameters in the provided <see cref="OrderedDictionary"/>. 
+    /// Returns true if all parameters provided are present in the file. Validates files that contain duplicated parameters (could be commented out, etc.).
+    /// </summary>
+    /// <param name="fileandpath">The complete file path, in format <see cref="typicalFileFormat"/>.</param> 
+    /// <param name="par">The list of parameters to verify against, in format <see cref="typicalParameterFormat"/>. See <see cref="OrderedDictionary"/>.</param>
+    /// <returns></returns>
+    bool MatchParamsToFile(string fileandpath, OrderedDictionary par)
     {
         HashSet<string> matchedParameters = new HashSet<string>();
 
-        using (StreamReader sr = System.IO.File.OpenText(file))
+        using (StreamReader sr = System.IO.File.OpenText(fileandpath))
         {
             string s;
             while ((s = sr.ReadLine()) != null)
@@ -844,8 +1047,7 @@ public partial class Engine : Window
                         if (match.Groups[1].Value.ToLower() == entry.Key.ToString().ToLower())
                         {
                             matchedParameters.Add(entry.Key.ToString().ToLower());
-                            issueNormalMessage($">>> Found eligible parameter {entry.Key} in file...");
-                            issueNormalMessage($">>> Set value of '{entry.Key}' to '{s}'!");
+                            IssueNormalMessage($">>> Found eligible parameter {entry.Key} in file...");
                         }
                     }
                 }
@@ -854,8 +1056,12 @@ public partial class Engine : Window
 
         return (par.Count == matchedParameters.Count);
     }
-
-    void addParameterToFile(OrderedDictionary par, string file)
+    /// <summary>
+    /// Adds parameter(s) to the specified file <see cref="string"/> using the provided <see cref="OrderedDictionary"/>, regardless of whether the parameters in the <see cref="OrderedDictionary"/> already exist.
+    /// </summary>
+    /// <param name="par">The <see cref="OrderedDictionary"/> collection of parameters, in format <see cref="typicalParameterFormat"/>.</param>
+    /// <param name="file">The complete file <see cref="string"/> path, in format <see cref="typicalFileFormat"/>.</param>
+    void AddParametersToFile(OrderedDictionary par, string file)
     {
         bool doneAdding = false;
 
@@ -883,35 +1089,20 @@ public partial class Engine : Window
             }
         }
 
-        writeFile(file, ref lineContent);
+        WriteFile(file, ref lineContent);
     }
-
-    void addParameterToFiles(string dirPath, OrderedDictionary parameters)
-    {
-        foreach (string file in Directory.EnumerateFiles(dirPath, targetFileExtension))
-        {
-            addParameterToFile(parameters, file);
-        }
-    }
-
-    void addParameterToFilesInDirs(List<string> dirs, OrderedDictionary parameters)
-    {
-        foreach (string dir in dirs)
-        {
-            foreach (string file in Directory.EnumerateFiles(dir, targetFileExtension))
-            {
-                addParameterToFile(parameters, file);
-            }
-        }
-    }
-
-    List<string> getFileContents(string filename)
+    /// <summary>
+    /// Returns the contents of a file at the specified filepath.
+    /// </summary>
+    /// <param name="fileandpath">The complete filepath of the file to open, in format <see cref="typicalFileFormat"/>.</param>
+    /// <returns>A <see cref="string"/> <see cref="List{T}"/> containing the contents of the file on a line-by-line basis.</returns>
+    static List<string> GetFileContents(string fileandpath)
     {
         List<string> x = new List<string>();
 
-        using (StreamReader sr = System.IO.File.OpenText(filename))
+        using (StreamReader sr = System.IO.File.OpenText(fileandpath))
         {
-            string s;
+            string? s;
             while ((s = sr.ReadLine()) != null)
             {
                 x.Add(s);
@@ -920,91 +1111,115 @@ public partial class Engine : Window
 
         return x;
     }
-
-    List<string>? getFileContents_SpecificQuery(string filename, string searchedString) //if the file contains the specified string in any of the given lines, then the function returns the contents of the file, otherwise null
+    /// <summary>
+    /// Creates a .vmt file for each .vtf file found in a provided folder, where each .vmt file will be based on a provided skeleton file that will contain the path to the .vtf either as a $basetexture or as a $detail parameter.
+    /// The base file is not altered.
+    /// </summary>
+    /// <param name="folderContainingVTFs">The folder containing the desired .vtf files, in format <see cref="typicalParameterFormat"/>.</param>
+    /// <param name="skeletonFile">The skeleton file to copy and edit into the directory.</param>
+    /// <param name="useAsDetail">Whether to write the path to the .vtf as the $basetexture. If false, it will write it as the $detail instead.</param>
+    void CreateNewVMTsFromVTFdir(string folderContainingVTFs, string skeletonFile, bool useAsDetail)
     {
-        bool found = false;
-
-        List<string> x = new List<string>();
-
-        using (StreamReader sr = System.IO.File.OpenText(filename))
+        if (!FolderExists(folderContainingVTFs))
         {
-            string s;
-            while ((s = sr.ReadLine()) != null)
-            {
-                if (s.ToLower().Contains(searchedString.ToLower()))
-                {
-                    found = true;
-                }
-                x.Add(s);
-            }
-        }
-
-        if (!found)
-        {
-            return null;
-        }
-
-        return x;
-    }
-
-    private OrderedDictionary getFileParameters()
-    {
-        OrderedDictionary result = new OrderedDictionary();
-
-        return result;
-    }
-
-    void createNewVMTsFromVTFdir(string source_dir, string base_file)
-    {
-        int indexOfDetailInBaseFile = -1;
-
-        //find detail attribute
-        List<string>? base_file_contents = getFileContents_SpecificQuery(base_file, "$detail");
-
-        if (base_file_contents == null) //if a detail attribute is not found, return
-        {
-            issueWarningMessage("Selected file does not contain the specified parameter! Aborting...");
+            IssueErrorMessage_NoExc(ErrMsgs.DIRNOTFOUND + $" Path: {folderContainingVTFs}");
             return;
         }
 
-        for (int i = 0; i < base_file_contents.Count; i++)
+        if (!File.Exists(skeletonFile))
         {
-            if (base_file_contents[i].ToLower().Contains("$detail"))
+            IssueErrorMessage_NoExc(ErrMsgs.FILENOTFOUND + $" File: {skeletonFile}");
+            return;
+        }
+
+        string toFind = "$basetexture";
+
+        if (useAsDetail)
+        {
+            toFind = "$detail";
+        }
+
+        string derivedPath = Path.GetFileName(folderContainingVTFs);
+
+        int indexOfDesiredAttributeInFile = -1;
+
+        //find desired attribute
+        List<string> base_file_contents = GetFileContents(skeletonFile);
+        bool foundDesiredAtt = false;
+
+        for (int i = 0; i < base_file_contents.Count(); i++)
+        {
+            var match = Regex.Match(base_file_contents[i], paramRegex);
+            if (match.Success)
             {
-                indexOfDetailInBaseFile = i;
-                break;
+                string paramName = match.Groups[1].Value.ToLower();
+
+                if (paramName == toFind)
+                {
+                    foundDesiredAtt = true;
+                    indexOfDesiredAttributeInFile = i;
+                    break;
+                }
             }
         }
 
-        IEnumerable<string> filesFound = Directory.EnumerateFiles(source_dir, "*.vtf");
+        if (!foundDesiredAtt)
+        {
+            IssueErrorMessage_NoExc(ErrMsgs.NOPARAMFOUND);
+            IssueNormalMessage($"Attempting to create a copy in memory that contains the desired {toFind} parameter...");
+
+            for (int i = base_file_contents.Count() - 1; i >= 0; i--)
+            {
+                if (base_file_contents[i].Contains("}"))
+                {
+                    indexOfDesiredAttributeInFile = i;
+
+                    base_file_contents.Insert(i, $"                \"{toFind}\"     \"PLACEHOLDER\"");
+
+                    break;
+                }
+            }
+        }
+
+        if (indexOfDesiredAttributeInFile == -1)
+        {
+            IssueErrorMessage_NoExc(ErrMsgs.MALFORMEDFILE + $" File: {skeletonFile}");
+            return;
+        }
+
+        IEnumerable<string> filesFound = Directory.EnumerateFiles(folderContainingVTFs, "*.vtf");
 
         if (filesFound.Count() <= 0)
         {
-            issueWarningMessage("Selected directory does not contain any valid .vtf files for use! Aborting...");
+            IssueWarningMessage("Selected directory does not contain any valid .vtf files for use! Aborting...");
             return;
         }
 
-        issueNormalMessage("Enter the relative workpath of the source of the materials: ");
-        string specifiedPath = Console.ReadLine();
+        List<string> originalContents = new List<string>(base_file_contents);
+        List<string> tempContents;
 
         foreach (var item in filesFound)
         {
-            base_file_contents[indexOfDetailInBaseFile] = $"                \"$detail\"     \"{specifiedPath + "\\" + getFileName_NoExtension(item)}\"";
-            writeFile(base_file, ref base_file_contents);
-            copyFile_NewName(base_file, source_dir, getFileName_NoExtension(item) + ".vmt");
+            tempContents = new List<string>(originalContents);
+            tempContents[indexOfDesiredAttributeInFile] = $"                \"{toFind}\"     \"{derivedPath + "\\" + GetFileName_NoExtension(item)}\"";
 
+            string tempFilePath = Path.Combine(folderContainingVTFs, GetFileName_NoExtension(item) + ".vmt");
+
+            WriteFile(tempFilePath, ref tempContents);
         }
-
 
         //if a detail attribute is found,
         //make a copy of the base VMT with the name of the vtf for each vtf found in the specified folder,
         //then inject the detail parameter with the file path of the vtf file
     }
-
-    private void fixFiles(string sourceDir)
+    /// <summary>
+    /// Iterates through all .vmt files in a directory and performs basic cleanup. 
+    /// Attempts to ensure the "$detail" parameter references a ".vtf" file, replaces backslashes '\' with forward slashes '/' and collapses duplicate slashes into a single '/'.
+    /// </summary>
+    /// <param name="sourceFolder">The folder containing the files to fix, in format <see cref="typicalFolderFormat"/>.</param>
+    private void FixFiles(string sourceFolder)
     {
-        IEnumerable<string> files = Directory.EnumerateFiles(sourceDir, "*.vmt");
+        IEnumerable<string> files = Directory.EnumerateFiles(sourceFolder, "*.vmt");
 
         int detailIndex = -1;
 
@@ -1012,36 +1227,39 @@ public partial class Engine : Window
 
         foreach (var file in files)
         {
-            List<string> contentsoffile = getFileContents(file);
+            List<string> contentsOfFile = GetFileContents(file);
 
-            foreach (var item in contentsoffile)
+            for (int i = 0; i < contentsOfFile.Count; i++)
             {
-                if (item.ToLower().Contains("\"$detail\""))
+                var item = contentsOfFile[i];
+                var match = Regex.Match(item, paramRegex);
+
+                if (match.Success && string.Equals(match.Groups[1].Value, "$detail", StringComparison.OrdinalIgnoreCase))
                 {
-                    detailIndex = contentsoffile.IndexOf(item);
+                    detailIndex = i;
                 }
 
                 if (item.Contains("\\"))
                 {
-                    issueNormalMessage("Found back slash on line: " + item);
-                    wrongSlashIndices.Add(contentsoffile.IndexOf(item));
+                    IssueNormalMessage("Found back slash on line: " + item);
+                    wrongSlashIndices.Add(i);
                 }
             }
 
             if (detailIndex != -1)
             {
-                string stringAtDetail = contentsoffile[detailIndex];
+                string stringAtDetail = contentsOfFile[detailIndex];
                 if (!stringAtDetail.Contains(".vtf"))
                 {
-                    issueNormalMessage("Does not have a valid .vtf signature for detail.");
+                    IssueNormalMessage("Does not have a valid .vtf signature for detail.");
                     stringAtDetail = stringAtDetail.Remove(stringAtDetail.Length - 1);
                     stringAtDetail = stringAtDetail + ".vtf\"";
 
-                    issueNormalMessage("Fix: " + stringAtDetail);
+                    IssueNormalMessage("Fix: " + stringAtDetail);
 
-                    contentsoffile[detailIndex] = stringAtDetail;
+                    contentsOfFile[detailIndex] = stringAtDetail;
 
-                    issueNormalMessage("New line: " + contentsoffile[detailIndex]);
+                    IssueNormalMessage("New line: " + contentsOfFile[detailIndex]);
                 }
 
                 detailIndex = -1;
@@ -1051,63 +1269,36 @@ public partial class Engine : Window
             {
                 foreach (var index in wrongSlashIndices)
                 {
-                    string stringContainingWrongSlash = contentsoffile[index];
-                    issueNormalMessage($"Found back slash line...: {stringContainingWrongSlash}");
+                    string stringContainingWrongSlash = contentsOfFile[index];
+                    IssueNormalMessage($"Found back slash line...: {stringContainingWrongSlash}");
                     stringContainingWrongSlash = stringContainingWrongSlash.Replace('\\', '/');
-                    contentsoffile[index] = stringContainingWrongSlash;
-                    issueNormalMessage("New line: " + contentsoffile[index]);
+                    contentsOfFile[index] = stringContainingWrongSlash;
+                    IssueNormalMessage("New line: " + contentsOfFile[index]);
                 }
 
                 wrongSlashIndices.Clear();
             }
 
-            for (int i = 0; i < contentsoffile.Count; i++)
+            for (int i = 0; i < contentsOfFile.Count; i++)
             {
-                if (Regex.IsMatch(contentsoffile[i], duplicateSlashRegex))
+                if (Regex.IsMatch(contentsOfFile[i], duplicateSlashRegex))
                 {
-                    issueNormalMessage("Found duplicate slash on line: " + contentsoffile[i]);
+                    IssueNormalMessage("Found duplicate slash on line: " + contentsOfFile[i]);
 
-                    contentsoffile[i] = Regex.Replace(contentsoffile[i], duplicateSlashRegex, "/");
+                    contentsOfFile[i] = Regex.Replace(contentsOfFile[i], duplicateSlashRegex, "/");
                 }
             }
 
-            writeFile(file, ref contentsoffile);
+            WriteFile(file, ref contentsOfFile);
         }
     }
-
-    void displayParametersInDictionary(Dictionary<string, string> x)
+    /// <summary>
+    /// Issues a warning message to the UI, alternating the background colour with each call and scrolling to the end of the <see cref="logScroller"/>.
+    /// </summary>
+    /// <param name="message">The message to display.</param>
+    void IssueWarningMessage(string message)
     {
-        issueNormalMessage("Current parameters: ");
-        if (x.Count < 1)
-        {
-            issueWarningMessage("No parameters added yet.");
-        }
-        foreach (var item in x)
-        {
-            issueNormalMessage($"\"{item.Key}\"  \"{item.Value}\"");
-        }
-    }
-
-    void displayParametersInDictionaryNoVal(Dictionary<string, string> x)
-    {
-        issueNormalMessage("Current parameters: ");
-        if (x.Count < 1)
-        {
-            issueWarningMessage("No parameters added yet.");
-        }
-        else
-        {
-            foreach (var item in x)
-            {
-                issueNormalMessage($"\"{item.Key}\"");
-            }
-        }
-    }
-
-    //is atomic? Y
-    void issueWarningMessage(string message)
-    {
-        alternateLogLineBackgroundColor();
+        AlternateLogLineBackgroundColor();
 
         var c = textBackgroundColor[Convert.ToInt32(alternateLogLineColor)];
 
@@ -1122,11 +1313,14 @@ public partial class Engine : Window
 
         logScroller.ScrollToEnd();
     }
-
-    //is atomic? Y
-    void issueErrorMessage(string message, Exception e)
+    /// <summary>
+    /// Issues an error message to the UI and its associated <see cref="Exception"/>, alternating the background colour with each call and scrolling to the end of the <see cref="logScroller"/>.
+    /// </summary>
+    /// <param name="message">The message to display.</param>
+    /// <param name="e">The <see cref="Exception"/> to display.</param>
+    void IssueErrorMessage(string message, Exception e)
     {
-        alternateLogLineBackgroundColor();
+        AlternateLogLineBackgroundColor();
 
         var c = textBackgroundColor[Convert.ToInt32(alternateLogLineColor)];
 
@@ -1151,10 +1345,13 @@ public partial class Engine : Window
         logScroller.ScrollToEnd();
     }
 
-    //is atomic? Y
-    void issueErrorMessage_NoExc(string message)
+    /// <summary>
+    /// Issues an error message to the UI, alternating the background colour with each call and scrolling to the end of the <see cref="logScroller"/>.
+    /// </summary>
+    /// <param name="message">The message to display.</param>
+    void IssueErrorMessage_NoExc(string message)
     {
-        alternateLogLineBackgroundColor();
+        AlternateLogLineBackgroundColor();
 
         var c = textBackgroundColor[Convert.ToInt32(alternateLogLineColor)];
 
@@ -1169,19 +1366,13 @@ public partial class Engine : Window
 
         logScroller.ScrollToEnd();
     }
-
-    void clearLog()
+    /// <summary>
+    /// Issues a basic message to the UI, alternating the background colour with each call and scrolling to the end of the <see cref="logScroller"/>.
+    /// </summary>
+    /// <param name="message">The message to display.</param>
+    void IssueNormalMessage(string message)
     {
-        alternateLogLineColor = false;
-
-        log.Inlines.Clear();
-
-        logScroller.ScrollToEnd();
-    }
-
-    void issueNormalMessage(string message)
-    {
-        alternateLogLineBackgroundColor();
+        AlternateLogLineBackgroundColor();
 
         var c = textBackgroundColor[Convert.ToInt32(alternateLogLineColor)];
 
@@ -1196,10 +1387,13 @@ public partial class Engine : Window
 
         logScroller.ScrollToEnd();
     }
-
-    void issueSuccessMessage(string message)
+    /// <summary>
+    /// Issues a success message to the UI, alternating the background colour with each call and scrolling to the end of the <see cref="logScroller"/>.
+    /// </summary>
+    /// <param name="message">The message to display.</param>
+    void IssueSuccessMessage(string message)
     {
-        alternateLogLineBackgroundColor();
+        AlternateLogLineBackgroundColor();
 
         var c = textBackgroundColor[Convert.ToInt32(alternateLogLineColor)];
 
@@ -1215,12 +1409,32 @@ public partial class Engine : Window
         logScroller.ScrollToEnd();
     }
 
-    void alternateLogLineBackgroundColor() { alternateLogLineColor = !alternateLogLineColor; }
-    void alternateGridLineBackgroundColor() { alternateGridLineColor = !alternateGridLineColor; }
-    void alternateFileLineBackgroundColor() { alternateFileLineColor = !alternateFileLineColor; }
-    void alternateFolderLineBackgroundColor() { alternateFolderLineColor = !alternateFolderLineColor; }
+    /// <summary>
+    /// Alternates which colour to use in the UI.
+    /// </summary>
+    void AlternateLogLineBackgroundColor() { alternateLogLineColor = !alternateLogLineColor; }
 
-    private void addParameterPairButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    /// <summary>
+    /// Alternates which colour to use in the UI.
+    /// </summary>
+    void AlternateGridLineBackgroundColor() { alternateGridLineColor = !alternateGridLineColor; }
+
+    /// <summary>
+    /// Alternates which colour to use in the UI.
+    /// </summary>
+    void AlternateFileLineBackgroundColor() { alternateFileLineColor = !alternateFileLineColor; }
+
+    /// <summary>
+    /// Alternates which colour to use in the UI.
+    /// </summary>
+    void AlternateFolderLineBackgroundColor() { alternateFolderLineColor = !alternateFolderLineColor; }
+
+    /// <summary>
+    /// Adds a parameter to <see cref="parametersList"/> depending on what is present in the relevant UI fields, according to relevant validation checks, then updates the relevant UI.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void AddParameterPairButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         string? parameterKey = parameterKeys.Text;
         string? parameterValue = parameterValues.Text;
@@ -1228,8 +1442,8 @@ public partial class Engine : Window
         //check if parameter key is provided
         if (parameterKey == null || parameterKey.Length < 1)
         {
-            issueErrorMessage_NoExc(ErrMsgs.NOPARAM);
-            clearParameterFields();
+            IssueErrorMessage_NoExc(ErrMsgs.NOPARAM);
+            ClearParameterFields();
             return;
         }
 
@@ -1238,16 +1452,16 @@ public partial class Engine : Window
         //check if parameter key is valid
         if (!validparams.Contains(parameterKey))
         {
-            issueErrorMessage_NoExc(ErrMsgs.INVALIDPARAM + $" Parameter: {parameterKey}");
-            clearParameterFields();
+            IssueErrorMessage_NoExc(ErrMsgs.INVALIDPARAM + $" Parameter: {parameterKey}");
+            ClearParameterFields();
             return;
         }
 
         //check if parameter value is provided
         if (parameterValue == null || parameterValue.Length < 1)
         {
-            issueErrorMessage_NoExc(ErrMsgs.NOPARAMVAL + $" Parameter: {parameterKey}");
-            clearParameterFields();
+            IssueErrorMessage_NoExc(ErrMsgs.NOPARAMVAL + $" Parameter: {parameterKey}");
+            ClearParameterFields();
             return;
         }
 
@@ -1258,100 +1472,108 @@ public partial class Engine : Window
         }
         catch (Exception err)
         {
-            issueErrorMessage(ErrMsgs.DUPLICATEPARAM, err);
-            clearParameterFields();
+            IssueErrorMessage(ErrMsgs.DUPLICATEPARAM, err);
+            ClearParameterFields();
             return;
         }
 
-        issueSuccessMessage($"Successfully added parameter '{parameterKey} with value' '{parameterValue}' to the parameter list!");
+        IssueSuccessMessage($"Successfully added parameter '{parameterKey} with value' '{parameterValue}' to the parameter list!");
 
-        addParameterToUIGrid(parameterKey, parameterValue);
+        AddParameterToUIGrid(parameterKey, parameterValue);
 
-        clearParameterFields();
+        ClearParameterFields();
     }
-
-    private void addFolderButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    /// <summary>
+    /// Adds a folder to <see cref="folderList"/> depending on what is present in the relevant UI fields, according to relevant validation checks, then updates the relevant UI.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void AddFolderButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         if (addFolderButton.IsEnabled)
         {
             string? s = folders.Text;
 
-            if (dirExists(s))
+            if (FolderExists(s))
             {
                 if (folderList.Contains(s))
                 {
-                    issueErrorMessage_NoExc(ErrMsgs.DUPLICATEFOLDER + $" Folder: {s}");
+                    IssueErrorMessage_NoExc(ErrMsgs.DUPLICATEFOLDER + $" Folder: {s}");
                     folders.Text = "";
                     return;
                 }
 
                 folderList.Add(s);
 
-                addFolderToUI(s);
+                AddFolderToUI(s);
 
-                issueSuccessMessage($"Successfully added {s} to the folder list!");
+                IssueSuccessMessage($"Successfully added {s} to the folder list!");
 
-                if (taskID == (int)EngineOperations.MoveLinear)
+                if (taskID == EngineOperations.MoveLinear)
                 {
                     addFolderButton.IsEnabled = false;
-                    issueWarningMessage(WrnMsgs.MAXFOLDERSREACHED + " Field: Folders");
+                    IssueWarningMessage(WrnMsgs.MAXFOLDERSREACHED + " Field: Folders");
                 }
             }
 
             folders.Text = "";
         }
     }
-
-    private void addFileButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    /// <summary>
+    /// Adds a file to <see cref="fileList"/> depending on what is present in the relevant UI fields, according to relevant validation checks, then updates the relevant UI.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void AddFileButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
         if (addFileButton.IsEnabled)
         {
             string? s = files.Text;
 
-            if (fileExists(s))
+            if (FileExists(s))
             {
                 if (fileList.Contains(s))
                 {
-                    issueErrorMessage_NoExc(ErrMsgs.DUPLICATEFILE + $" File: {s}");
+                    IssueErrorMessage_NoExc(ErrMsgs.DUPLICATEFILE + $" File: {s}");
                     files.Text = "";
                     return;
                 }
 
                 fileList.Add(s);
 
-                addFileToUI(s);
+                AddFileToUI(s);
 
-                issueSuccessMessage($"Successfully added {s} to the file list!");
+                IssueSuccessMessage($"Successfully added {s} to the file list!");
 
-                if (taskID == (int)EngineOperations.AddParametersSingular)
+                if (taskID == EngineOperations.AddParametersSingular || taskID == EngineOperations.CreatePairedBase || taskID == EngineOperations.CreatePairedBaseDetail)
                 {
-                    issueWarningMessage(WrnMsgs.MAXFILESREACHED);
+                    IssueWarningMessage(WrnMsgs.MAXFILESREACHED);
                     addFileButton.IsEnabled = false;
                 }
             }
             else
             {
-                issueNormalMessage("Looking for directory instead...");
-                if (dirExists(s))
+                IssueNormalMessage("Looking for directory instead...");
+                if (FolderExists(s))
                 {
-                    foreach (var item in getAllSubdirFiles(s))
+                    foreach (var item in GetAllSubdirFiles(s))
                     {
                         if (fileList.Contains(item))
                         {
-                            issueErrorMessage_NoExc(ErrMsgs.DUPLICATEFILE + $" File: {item}");
+                            IssueErrorMessage_NoExc(ErrMsgs.DUPLICATEFILE + $" File: {item}");
                             files.Text = "";
                             return;
                         }
 
                         fileList.Add(item);
 
-                        addFileToUI(item);
+                        AddFileToUI(item);
 
-                        issueSuccessMessage($"Successfully added {item} to the file list!");
+                        IssueSuccessMessage($"Successfully added {item} to the file list!");
 
-                        if (taskID == (int)EngineOperations.AddParametersSingular)
+                        if (taskID == EngineOperations.AddParametersSingular || taskID == EngineOperations.CreatePairedBase || taskID == EngineOperations.CreatePairedBaseDetail)
                         {
-                            issueWarningMessage(WrnMsgs.MAXFILESREACHED);
+                            IssueWarningMessage(WrnMsgs.MAXFILESREACHED);
                             addFileButton.IsEnabled = false;
                             break;
                         }
@@ -1362,16 +1584,22 @@ public partial class Engine : Window
             files.Text = "";
         }
     }
-
-    private void clearParameterFields()
+    /// <summary>
+    /// Clears all parameter UI fields.
+    /// </summary>
+    private void ClearParameterFields()
     {
         parameterKeys.Clear();
         parameterValues.Clear();
     }
-
-    private void addParameterToUIGrid(string k, string v)
+    /// <summary>
+    ///Adds a parameter to the UI grid, alternating the background colour with each call and scrolling to the end of the <see cref="parameterScroller"/>.
+    /// </summary>
+    /// <param name="k">The key of the parameter; see format <see cref="typicalParameterFormat"/>.</param>
+    /// <param name="v">The value of the parameter; see format <see cref="typicalParameterFormat"/>.</param>
+    private void AddParameterToUIGrid(string k, string v)
     {
-        alternateGridLineBackgroundColor();
+        AlternateGridLineBackgroundColor();
 
         var c = textBackgroundColor[Convert.ToInt32(alternateGridLineColor)];
 
@@ -1394,10 +1622,13 @@ public partial class Engine : Window
 
         parameterScroller.ScrollToEnd();
     }
-
-    private void addFileToUI(string file)
+    /// <summary>
+    ///Adds a file to the UI, alternating the background colour with each call and scrolling to the end of the <see cref="fileScroller"/>.
+    /// </summary>
+    /// <param name="file">The file to add.</param>
+    private void AddFileToUI(string file)
     {
-        alternateFileLineBackgroundColor();
+        AlternateFileLineBackgroundColor();
 
         var c = textBackgroundColor[Convert.ToInt32(alternateFileLineColor)];
 
@@ -1412,10 +1643,13 @@ public partial class Engine : Window
 
         fileScroller.ScrollToEnd();
     }
-
-    private void addFolderToUI(string folder)
+    /// <summary>
+    ///Adds a folder to the UI, alternating the background colour with each call and scrolling to the end of the <see cref="folderScroller"/>.
+    /// </summary>
+    /// <param name="folder">The folder to add.</param>
+    private void AddFolderToUI(string folder)
     {
-        alternateFolderLineBackgroundColor();
+        AlternateFolderLineBackgroundColor();
 
         var c = textBackgroundColor[Convert.ToInt32(alternateFolderLineColor)];
 
@@ -1430,30 +1664,37 @@ public partial class Engine : Window
 
         folderScroller.ScrollToEnd();
     }
-
-    private void redrawFilesToUI()
+    /// <summary>
+    /// Redraws the files to the UI.
+    /// </summary>
+    private void RedrawFilesToUI()
     {
         currentFiles.Text = "";
+
         currentFiles.Inlines.Clear();
 
         foreach (var item in fileList)
         {
-            addFileToUI(item);
+            AddFileToUI(item);
         }
     }
-
-    private void redrawFoldersToUI()
+    /// <summary>
+    /// Redraws the folders to the UI.
+    /// </summary>
+    private void RedrawFoldersToUI()
     {
         currentFolders.Text = "";
         currentFolders.Inlines.Clear();
 
         foreach (var item in folderList)
         {
-            addFolderToUI(item);
+            AddFolderToUI(item);
         }
     }
-
-    private void redrawParametersToUI()
+    /// <summary>
+    /// Redraws the parameters to the UI.
+    /// </summary>
+    private void RedrawParametersToUI()
     {
         gridParameterKeys.Text = "";
         gridParameterValues.Text = "";
@@ -1463,40 +1704,54 @@ public partial class Engine : Window
 
         foreach (DictionaryEntry item in parametersList)
         {
-            addParameterToUIGrid(item.Key.ToString(), item.Value.ToString());
+            AddParameterToUIGrid(item.Key.ToString(), item.Value.ToString());
         }
     }
-
-    private void files_KeyDown(object? sender, Avalonia.Input.KeyEventArgs e)
+    /// <summary>
+    /// Handles actions relating to pressing a key in the file UI field. Pressing <see cref="Key.Enter"/> will call <see cref="AddFileButton_Click(object?, Avalonia.Interactivity.RoutedEventArgs)"/>.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Files_KeyDown(object? sender, Avalonia.Input.KeyEventArgs e)
     {
         if (e.Key == Key.Enter)
         {
             e.Handled = true;
-            addFileButton_Click(sender, e);
+            AddFileButton_Click(sender, e);
         }
     }
-
-    private void folders_KeyDown(object? sender, Avalonia.Input.KeyEventArgs e)
+    /// <summary>
+    /// Handles actions relating to pressing a key in the folder UI field. Pressing <see cref="Key.Enter"/> will call <see cref="AddFolderButton_Click(object?, Avalonia.Interactivity.RoutedEventArgs)"/>.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void Folders_KeyDown(object? sender, Avalonia.Input.KeyEventArgs e)
     {
         if (e.Key == Key.Enter)
         {
             e.Handled = true;
-            addFolderButton_Click(sender, e);
+            AddFolderButton_Click(sender, e);
         }
     }
-
-    private void parameterPair_KeyDown(object? sender, Avalonia.Input.KeyEventArgs e)
+    /// <summary>
+    /// Handles actions relating to pressing a key in the parameter UI field. Pressing <see cref="Key.Enter"/> will call <see cref="AddParameterPairButton_Click(object?, Avalonia.Interactivity.RoutedEventArgs)"/>.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void ParameterPair_KeyDown(object? sender, Avalonia.Input.KeyEventArgs e)
     {
         if (e.Key == Key.Enter)
         {
             e.Handled = true;
-            addParameterPairButton_Click(sender, e);
+            AddParameterPairButton_Click(sender, e);
         }
     }
-
-    //TODO: you were trying to prevent addparameters from adding a duplicate parameter; also trying to find a way to deduplicate files
-
-    private HashSet<string> convertFilesFromFolders(List<string> folders)
+    /// <summary>
+    /// Converts a <see cref="string"/> <see cref="List{T}"/> to a unique <see cref="string"/> <see cref="HashSet{T}"/>. Duplicate files are not permitted.
+    /// </summary>
+    /// <param name="folders">The <see cref="string"/> <see cref="List{T}"/> of folders to look into.</param>
+    /// <returns>A <see cref="string"/> <see cref="HashSet{T}"/> containing all files found in all folders uniquely. Duplicate files are not permitted.</returns>
+    private HashSet<string> ConvertFilesFromFolders(List<string> folders)
     { 
         HashSet<string> result = new HashSet<string>();
 
@@ -1510,10 +1765,15 @@ public partial class Engine : Window
 
         return result;
     }
-
-    private HashSet<string> convertFilesFromFolders(List<string> folders, List<string> spareFiles)
+    /// <summary>
+    /// Converts a <see cref="string"/> <see cref="List{T}"/> to a unique <see cref="string"/> <see cref="HashSet{T}"/> and adds any remaining spare files to the set, if they weren't already present. Duplicate files are not permitted.
+    /// </summary>
+    /// <param name="folders">The <see cref="string"/> <see cref="List{T}"/> of folders to look into.</param>
+    /// <param name="spareFiles">The <see cref="string"/> <see cref="List{T}"/> of spare files to add.</param>
+    /// <returns>A <see cref="string"/> <see cref="HashSet{T}"/> containing all files found in all folders uniquely + any unique spare files. Duplicate files are not permitted.</returns>
+    private HashSet<string> ConvertFilesFromFolders(List<string> folders, List<string> spareFiles)
     {
-        HashSet<string> x = convertFilesFromFolders(folders);
+        HashSet<string> x = ConvertFilesFromFolders(folders);
         foreach (var file in spareFiles)
         {
             x.Add(file);
@@ -1521,53 +1781,68 @@ public partial class Engine : Window
         return x;
     }
 
-    private void removeLastParameterPair()
+    /// <summary>
+    /// Removes the last parameter pair in <see cref="parametersList"/> and calls <see cref="IssueWarningMessage(string)"/> to let the user know which parameter pair was last removed. 
+    /// CAUTION: Does not affect UI.
+    /// </summary>
+    private void RemoveLastParameterPair()
     {
-        issueWarningMessage(WrnMsgs.REMOVEDPARAM);
-        parametersList.RemoveAt(parametersList.Count - 1);
+        if (parametersList.Count > 0)
+        {
+            string? x = (string?)parametersList[parametersList.Count - 1];
+            IssueWarningMessage(WrnMsgs.REMOVEDPARAM + $" Parameter value: {x}");
+            parametersList.RemoveAt(parametersList.Count - 1);
+        }
+        else
+        {
+            IssueErrorMessage_NoExc(ErrMsgs.NOPARAMTOREMOVE);
+        }
     }
-
-    private void resetAllFields()
+    /// <summary>
+    /// Resets all relevant UI fields by calling <see cref="EnableAllButtons"/>, <see cref="ClearAllTextBoxes"/>, <see cref="ClearAllStoredValues"/> and <see cref="RedrawAllUI"/>.
+    /// </summary>
+    private void ResetAllFields()
     {
-        enableAllButtons();
-        clearAllTextBoxes();
-        clearAllStoredValues();
-        redrawAllUI();
+        EnableAllButtons();
+        ClearAllTextBoxes();
+        ClearAllStoredValues();
+        RedrawAllUI();
     }
-
-    private void enableAllButtons()
+    /// <summary>
+    /// Enables all relevant UI buttons.
+    /// </summary>
+    private void EnableAllButtons()
     {
         addFileButton.IsEnabled = true;
         addFolderButton.IsEnabled = true;
         addParameterPairButton.IsEnabled = true;
     }
-
-    private void disableAllButtons()
-    {
-        addFileButton.IsEnabled = false;
-        addFolderButton.IsEnabled = false;
-        addParameterPairButton.IsEnabled = false;
-    }
-
-    private void clearAllTextBoxes()
+    /// <summary>
+    /// Clears all relevant TextBoxes.
+    /// </summary>
+    private void ClearAllTextBoxes()
     {
         files.Text = "";
         folders.Text = "";
         parameterKeys.Text = "";
         parameterValues.Text = "";
     }
-
-    private void clearAllStoredValues()
+    /// <summary>
+    /// Clears all values stored in <see cref="fileList"/>, <see cref="folderList"/> and <see cref="parametersList"/>.
+    /// </summary>
+    private void ClearAllStoredValues()
     { 
         fileList = new List<string>();
         folderList = new List<string>();
         parametersList = new OrderedDictionary();
     }
-
-    private void redrawAllUI()
+    /// <summary>
+    /// Redraws all relevant UI elements by calling <see cref="RedrawFilesToUI"/>, <see cref="RedrawFoldersToUI"/> and <see cref="RedrawParametersToUI"/>.
+    /// </summary>
+    private void RedrawAllUI()
     {
-        redrawFilesToUI();
-        redrawFoldersToUI();
-        redrawParametersToUI();
+        RedrawFilesToUI();
+        RedrawFoldersToUI();
+        RedrawParametersToUI();
     }
 }
